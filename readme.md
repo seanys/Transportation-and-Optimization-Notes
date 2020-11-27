@@ -70,12 +70,9 @@ Beckmann's transformation can convert the euqilibrium into a convex problem
 
 System optimum is expected in all cities because it can 
 
-The system condition should meet the following 
+The system condition should meet the following：
 
-<img src="http://latex.codecogs.com/gif.latex?min\sum_{a \in A} t_a(x_a) \\
-s.t. \; x_a = \sum_{w \in W} \sum_{r \in R_w} f_{r,w}\delta_{a,r}, a\in A \\
-\sum_{r\in R_w} f_{r,w} = d_w, w \in W \\
-f_{r,w} \geq 0, r\in R_w, w \in W" />
+<a href="https://www.codecogs.com/eqnedit.php?latex=min\sum_{a&space;\in&space;A}&space;t_a(x_a)&space;\\&space;s.t.&space;\;&space;x_a&space;=&space;\sum_{w&space;\in&space;W}&space;\sum_{r&space;\in&space;R_w}&space;f_{r,w}\delta_{a,r},&space;a\in&space;A&space;\\&space;\sum_{r\in&space;R_w}&space;f_{r,w}&space;=&space;d_w,&space;w&space;\in&space;W&space;\\&space;f_{r,w}&space;\geq&space;0,&space;r\in&space;R_w,&space;w&space;\in&space;W" target="_blank"><img src="https://latex.codecogs.com/gif.latex?min\sum_{a&space;\in&space;A}&space;t_a(x_a)&space;\\&space;s.t.&space;\;&space;x_a&space;=&space;\sum_{w&space;\in&space;W}&space;\sum_{r&space;\in&space;R_w}&space;f_{r,w}\delta_{a,r},&space;a\in&space;A&space;\\&space;\sum_{r\in&space;R_w}&space;f_{r,w}&space;=&space;d_w,&space;w&space;\in&space;W&space;\\&space;f_{r,w}&space;\geq&space;0,&space;r\in&space;R_w,&space;w&space;\in&space;W" title="min\sum_{a \in A} t_a(x_a) \\ s.t. \; x_a = \sum_{w \in W} \sum_{r \in R_w} f_{r,w}\delta_{a,r}, a\in A \\ \sum_{r\in R_w} f_{r,w} = d_w, w \in W \\ f_{r,w} \geq 0, r\in R_w, w \in W" /></a>
 
 
 
@@ -129,15 +126,13 @@ I have done a project compute the
 
 This part contains some issues introduced in *Nocedal J, Wright S. Numerical optimization[M]. Springer Science & Business Media, 2006* and *Boyd S, Boyd S P, Vandenberghe L. Convex optimization[M]. Cambridge university press, 2004*.
 
+### Unconstrained Optimization
+
+
+
 ### Convex Optimization
 
 
-
-### Unconstrained Optimization
-
-局部最优：
-
-全局最优：
 
 
 
