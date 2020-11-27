@@ -1,22 +1,33 @@
 ## Content
 
 - [Urban Transportation](#urban-transportation)
+  * [BPR Function](#bpr-function)
   * [User Euqilibrium](#user-euqilibrium)
     + [Mathematical Model](#mathematical-model)
-    + [All or Nothing](#all-or-nothing)
-    + [Incremental Assignment](#incremental-assignment)
-    + [Beckmann's Transformation](#beckmann-s-transformation)
+    + [Heuristic method](#heuristic-method)
+  * [Beckmann's Transformation](#beckmann-s-transformation)
+  * [Frank-Wolfe Algorithm](#frank-wolfe-algorithm)
   * [System Optimum](#system-optimum)
+    + [Model Introduction](#model-introduction)
+    + [Price of Anarchy](#price-of-anarchy)
   * [Network Loading Models](#network-loading-models)
-    + 
+    + [Choice Function](#choice-function)
     + [Logit-Based Loading Models](#logit-based-loading-models)
+- [Network Problem](#network-problem)
   * [Max-Flow Problem](#max-flow-problem)
   * [Minimum Cost Flow](#minimum-cost-flow)
+- [Simulation](#simulation)
+  * [Random Number](#random-number)
   * [Queueing Theory](#queueing-theory)
 - [Optimization Problem](#optimization-problem)
-  * [Convex Optimization](#convex-optimization)
   * [Unconstrained Optimization](#unconstrained-optimization)
+  * [Line Search Methods](#line-search-methods)
+    + [Simple Introduction](#simple-introduction)
+    + [Search Direction](#search-direction)
+  * [Trust Region](#trust-region)
   * [KKT Condition](#kkt-condition)
+  * [Leat-Squared Problems](#leat-squared-problems)
+  * [Dual Problem](#dual-problem)
   * [Newton's Method](#newton-s-method)
   * [Quasi-Newton's Method](#quasi-newton-s-method)
   * [No-linear Equation](#no-linear-equation)
@@ -29,18 +40,28 @@
   * [DW Decomposition](#dw-decomposition)
   * [Bender Decomposition](#bender-decomposition)
   * [Iterated Local Search](#iterated-local-search)
+- [Reinforcement Learning](#reinforcement-learning)
+
 
 
 
 ## Urban Transportation 
 
-This part contains some problems introduced in *Sheffi Y. Urban transportation networks[M]. Prentice-Hall, Englewood Cliffs, NJ, 1985* and operation research.
+This part contains some problems introduced in *Sheffi Y. Urban transportation networks[M]. Prentice-Hall, Englewood Cliffs, NJ, 1985* , wiki, and operation research
 
 ### BPR Function
 
-BRP fucntion is the 
+Suppose we are considering a highway network. For each link there is a function stating the relationship between resistance and volume of traffic. The Bureau of Public Roads (BPR) developed a link (arc) congestion (or volume-delay, or link performance) function.
 
- functions of the  is conducting research on road traffic impedance
+![1fe844a61968160ba88c7e2c8dc2e33a55094d16](img/1fe844a61968160ba88c7e2c8dc2e33a55094d16.svg)
+
+$t_a$ = free-flow travel time on link a per unit of time
+
+$Q_a$ = flow (or volume) of traffic on link a per unit of time (somewhat more accurately: flow attempting to use link a)
+
+$c_a$ = capacity of link a per unit of time
+
+$S_a(Q_a)$ is the average travel time for a vehicle on link a
 
 ### User Euqilibrium
 
@@ -48,7 +69,9 @@ BRP fucntion is the
 
 Wordrop equilibrium
 
-<img src="img/image-20201122134743994.png" alt="image-20201122134743994" style="width:500px" />
+<img src="img/image-20201122134743994.png" alt="image-20201122134743994" style="width:400px" />
+
+<img src="img/1000px-EquilibriumAssignment3.png" alt="1000px-EquilibriumAssignment3" style="width:600px;" />
 
 #### Heuristic method
 
@@ -62,21 +85,33 @@ Beckmann's transformation can convert the euqilibrium into a convex problem
 
 <img src="img/image-20201122134920754.png" alt="image-20201122134920754" style="width:600px;" />
 
-### Stochastic User Euqilibrium
+### Frank-Wolfe Algorithm
 
-
+Dafermos (1968) applied the [Frank-Wolfe algorithm](https://en.wikipedia.org/wiki/Frank-Wolfe_algorithm) (1956, Florian 1976), which can be used to deal with the traffic equilibrium problem. 
 
 ### System Optimum
 
-System optimum is expected in all cities because it can 
+#### Model Introduction
 
 The system condition should meet the following：
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=min\sum_{a&space;\in&space;A}&space;t_a(x_a)&space;\\&space;s.t.&space;\;&space;x_a&space;=&space;\sum_{w&space;\in&space;W}&space;\sum_{r&space;\in&space;R_w}&space;f_{r,w}\delta_{a,r},&space;a\in&space;A&space;\\&space;\sum_{r\in&space;R_w}&space;f_{r,w}&space;=&space;d_w,&space;w&space;\in&space;W&space;\\&space;f_{r,w}&space;\geq&space;0,&space;r\in&space;R_w,&space;w&space;\in&space;W" target="_blank"><img src="https://latex.codecogs.com/gif.latex?min\sum_{a&space;\in&space;A}&space;t_a(x_a)&space;\\&space;s.t.&space;\;&space;x_a&space;=&space;\sum_{w&space;\in&space;W}&space;\sum_{r&space;\in&space;R_w}&space;f_{r,w}\delta_{a,r},&space;a\in&space;A&space;\\&space;\sum_{r\in&space;R_w}&space;f_{r,w}&space;=&space;d_w,&space;w&space;\in&space;W&space;\\&space;f_{r,w}&space;\geq&space;0,&space;r\in&space;R_w,&space;w&space;\in&space;W" title="min\sum_{a \in A} t_a(x_a) \\ s.t. \; x_a = \sum_{w \in W} \sum_{r \in R_w} f_{r,w}\delta_{a,r}, a\in A \\ \sum_{r\in R_w} f_{r,w} = d_w, w \in W \\ f_{r,w} \geq 0, r\in R_w, w \in W" /></a>
+<img src="/Users/sean/Documents/Projects/My Github/Transportation-and-Optimization-Notes/img/image-20201128034804725.png" alt="image-20201128034804725" style="width:300px;" />
 
+The KKT conditions of the SO problem:
 
+<img src="img/image-20201128034709559.png" alt="image-20201128034709559" style="width:500px;" />
 
+It is a simple problem to solve compared with the user euqilibrium.
 
+#### Price of Anarchy
+
+The reason we have congestion is that people are selfish. The cost of that selfishness (when people behave according to their own interest rather than society's) is the price of anarchy*.
+
+The ratio of system-wide travel time under User Equilibrium and System Optimal conditions.
+
+Price of Anarchy = ![{\displaystyle UE/SO>1}](https://wikimedia.org/api/rest_v1/media/math/render/svg/00734c2d51653a837331cfad02d15c6e66395909)
+
+For a two-link network with linear link performance functions (latency functions), Price of Anarchy is < 4/3.
 
 ### Network Loading Models
 
@@ -88,13 +123,11 @@ When there are serval choice for passengers, different ways will afford differen
 
 #### Logit-Based Loading Models 
 
-This logit modl is similar to the softmax.
+This logit modl is similar to the softmax model.
 
 ![](http://latex.codecogs.com/svg.latex?P_k=\frac{e^{V_k}}{\sum_{l=1}^K{e^{V_l}}}, \forall k \in K )
 
-I have done a project compute the  
-
-
+I have done a project compute the loading model using logit regression and general price which is introduced in xxx
 
 ## Network Problem
 
@@ -128,19 +161,45 @@ This part contains some issues introduced in *Nocedal J, Wright S. Numerical opt
 
 ### Unconstrained Optimization
 
+**First Oder Necessary Conditions**: If $x^*$ is a local minimizer and $f$ is continuously differentiable in an open neighborhood of $x^*$, then $\nabla  f(x^∗)=0$ .
+
+**Second Oder Necessary Conditions**: If $x^*$ is a local minimizer of $f$ and $\nabla^2f$ exists and is continuous in an open neighborhood of $x^∗$, then $\nabla f(x^*) = 0$ and $\nabla f(x^*)$ is positive semidefinite.
+
+**Second Order Sufficient Conditions**: Suppose that $\nabla^2 f$ is continuous in an open neighborhood of $x^*$ and that $\nabla f(x^*)=0$ and $\nabla^2 f(x^*)$ is positive definite. Then $x^*$ is a strict local minimizer of $f$.
+
+**Second-Order Sufficient Conditions**: Suppose that $\nabla^2 f$ is continuous in an open neighborhood of  $x^*$ and that $\nabla f(x^*)  = 0$ and $\nabla^2 f$ is positive definite. Then $x^*$ is a strict local minimizer of $f$.
+
+These four theorems introduce how to obtain the local optimal of a function $f$. Moreover, if $f$ if convex, any local minimizer $x^*$ is a global minimizer. If $f$ is differentiable, then any stationary point $x^*$ is a global minimizer.
+
+### Line Search Methods 
+
+#### Simple Introduction
+
+In the *line search* strategy, the algorithm chooses a direction $p_k$ and searches along this direction from the current iterate $x_k$ for a new iterate with a lower function value. The distance to move along $p_k$ can be found by approximately solving the following one- dimensional minimization problem to find a step length α: 
+
+<img src="img/image-20201128034037517.png" alt="image-20201128034037517" style="width:150px;" />
+
+We would derive the maximum benefit from the direction $p_k$ , but an exact minimization may be expensive and is usually unnecessary. Instead, the line search algorithm generates a limited number of trial step lengths until it finds one that loosely approximates the minimum of  this objective. At the new point, a new search direction and step length are computed, and the process is repeated. 
+
+#### Search Direction
 
 
-### Convex Optimization
 
+### Trust Region
 
-
-
-
-
+<img src="img/image-20201128033854279.png" alt="image-20201128033854279" style="width:700px;" />
 
 ### KKT Condition
 
-非约束优化中，最终
+In constrained optimization problem, 
+
+
+
+
+
+### Leat-Squared Problems
+
+
 
 
 
