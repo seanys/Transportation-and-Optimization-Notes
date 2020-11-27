@@ -36,13 +36,19 @@
 
 This part contains some problems introduced in *Sheffi Y. Urban transportation networks[M]. Prentice-Hall, Englewood Cliffs, NJ, 1985* and operation research.
 
+### BPR Function
+
+BRP fucntion is the 
+
+ functions of the  is conducting research on road traffic impedance
+
 ### User Euqilibrium
 
 #### Mathematical Model
 
 Wordrop equilibrium
 
-<img src="/Users/sean/Documents/Projects/My Github/Transportation-and-Optimization-Notes/img/image-20201122134743994.png" alt="image-20201122134743994" style="width:500px" />
+<img src="img/image-20201122134743994.png" alt="image-20201122134743994" style="width:500px" />
 
 #### Heuristic method
 
@@ -56,18 +62,22 @@ Beckmann's transformation can convert the euqilibrium into a convex problem
 
 <img src="img/image-20201122134920754.png" alt="image-20201122134920754" style="width:600px;" />
 
+### Stochastic User Euqilibrium
+
+
+
 ### System Optimum
 
 System optimum is expected in all cities because it can 
 
 The system condition should meet the following 
 
-
-
-![](http://latex.codecogs.com/svg.latex?min\sum_{a \in A} t_a(x_a) \\
+<img src="http://latex.codecogs.com/gif.latex?min\sum_{a \in A} t_a(x_a) \\
 s.t. \; x_a = \sum_{w \in W} \sum_{r \in R_w} f_{r,w}\delta_{a,r}, a\in A \\
 \sum_{r\in R_w} f_{r,w} = d_w, w \in W \\
-f_{r,w} \geq 0, r\in R_w, w \in W)
+f_{r,w} \geq 0, r\in R_w, w \in W" />
+
+
 
 
 
@@ -85,9 +95,7 @@ This logit modl is similar to the softmax.
 
 ![](http://latex.codecogs.com/svg.latex?P_k=\frac{e^{V_k}}{\sum_{l=1}^K{e^{V_l}}}, \forall k \in K )
 
-A project based on the 
-
-
+I have done a project compute the  
 
 
 
@@ -206,6 +214,12 @@ This part contains some issues introduced in *Nocedal J, Wright S. Numerical opt
 ### Iterated Local Search
 
 Local search is a heuristic approch for integer programming. This approache will limit the searching region and search the local region of the initial solution iteratively. However, the solution time depends on the initial solution and it may fall into local optimum.
+
+
+
+## Reinforcement Learning
+
+In schedule 
 
 
 
