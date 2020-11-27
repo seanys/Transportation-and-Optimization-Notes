@@ -1,18 +1,46 @@
-## 目录
+## Content
 
-- [交通问题](#交通问题)
+- [Urban Transportation](#urban-transportation)
+  * [User Euqilibrium](#user-euqilibrium)
+    + [Mathematical Model](#mathematical-model)
+    + [All or Nothing](#all-or-nothing)
+    + [Incremental Assignment](#incremental-assignment)
+    + [Beckmann's Transformation](#beckmann-s-transformation)
+  * [System Optimum](#system-optimum)
+  * [Network Loading Models](#network-loading-models)
+    + 
+    + [Logit-Based Loading Models](#logit-based-loading-models)
+  * [Max-Flow Problem](#max-flow-problem)
+  * [Minimum Cost Flow](#minimum-cost-flow)
+  * [Queueing Theory](#queueing-theory)
+- [Optimization Problem](#optimization-problem)
+  * [Convex Optimization](#convex-optimization)
+  * [Unconstrained Optimization](#unconstrained-optimization)
+  * [KKT Condition](#kkt-condition)
+  * [Newton's Method](#newton-s-method)
+  * [Quasi-Newton's Method](#quasi-newton-s-method)
+  * [No-linear Equation](#no-linear-equation)
+- [Integer Programming](#integer-programming)
+  * [Branch and Bound](#branch-and-bound)
+  * [Branch and Cut](#branch-and-cut)
+  * [Branch and Price](#branch-and-price)
+  * [Lagrangian Decomposition](#lagrangian-decomposition)
+  * [Column Generation](#column-generation)
+  * [DW Decomposition](#dw-decomposition)
+  * [Bender Decomposition](#bender-decomposition)
+  * [Iterated Local Search](#iterated-local-search)
 
 
 
-## 交通问题
+## Urban Transportation 
 
-### 用户均衡
+This part contains some problems introduced in *Sheffi Y. Urban transportation networks[M]. Prentice-Hall, Englewood Cliffs, NJ, 1985* and operation research.
 
-该部分主要包括用户均衡的定义，以及如何通过启发式算法和凸优化理论进行交通分配从而获得用户均衡状态
+### User Euqilibrium
 
-#### 状态描述
+#### Mathematical Model
 
-**Wordrop** (沃德罗普)平衡(**Wordrop equilibrium**) 
+Wordrop equilibrium
 
 <img src="/Users/sean/Documents/Projects/My Github/Transportation-and-Optimization-Notes/img/image-20201122134743994.png" alt="image-20201122134743994" style="width:500px" />
 
@@ -28,11 +56,21 @@
 
 <img src="img/image-20201122134920754.png" alt="image-20201122134920754" style="width:600px;" />
 
+### System Optimum
+
+
+
+### Network Loading Models
+
+#### Choice Function
+
+
+
+#### Logit-Based Loading Models 
 
 
 
 
-### 路阻函数
 
 
 
@@ -40,15 +78,33 @@
 
 
 
-## 优化问题
-
-参考教材：Numerical Optimizatiom, Convex Optimization
-
-### 凸优化
+### Max-Flow Problem
 
 
 
-### 优化条件
+
+
+### Minimum Cost Flow
+
+
+
+### Queueing Theory
+
+
+
+
+
+
+
+## Optimization Problem
+
+This part contains some issues introduced in *Nocedal J, Wright S. Numerical optimization[M]. Springer Science & Business Media, 2006* and *Boyd S, Boyd S P, Vandenberghe L. Convex optimization[M]. Cambridge university press, 2004*.
+
+### Convex Optimization
+
+
+
+### Unconstrained Optimization
 
 局部最优：
 
@@ -58,11 +114,15 @@
 
 
 
-### KKT条件
+### KKT Condition
+
+非约束优化中，最终
 
 
 
-### 牛顿法
+
+
+### Newton's Method
 
 中文参考资料：https://zhuanlan.zhihu.com/p/33544363
 
@@ -72,21 +132,19 @@
 
 ![preview](img/v2-359458f4cbee86ecd0b4332b37553b8a_r.png)
 
-### 拟牛顿法
+### Quasi-Newton's Method
 
 
 
-### 非线性优化
-
-
-
-### 似然函数与最大后验
+### No-linear Equation
 
 
 
 
 
-## 整数规划
+
+
+## Integer Programming
 
 ### Branch and Bound
 
@@ -117,6 +175,12 @@
 ### Bender Decomposition
 
 编辑中
+
+
+
+### Iterated Local Search
+
+Local search is a heuristic approch for integer programming. This approache will limit the searching region and search the local region of the initial solution iteratively. However, the solution time depends on the initial solution and it may fall into local optimum.
 
 
 
