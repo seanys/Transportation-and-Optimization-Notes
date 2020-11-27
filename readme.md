@@ -44,23 +44,36 @@ Wordrop equilibrium
 
 <img src="/Users/sean/Documents/Projects/My Github/Transportation-and-Optimization-Notes/img/image-20201122134743994.png" alt="image-20201122134743994" style="width:500px" />
 
-#### All or Nothing
+#### Heuristic method
 
+1. All or Nothing
 
+2. Incremental Assignment
 
-#### Incremental Assignment
+### Beckmann's Transformation
 
-
-
-#### Beckmann's Transformation
+Beckmann's transformation can convert the euqilibrium into a convex problem
 
 <img src="img/image-20201122134920754.png" alt="image-20201122134920754" style="width:600px;" />
 
 ### System Optimum
 
+System optimum is expected in all cities because it can 
+
+The system condition should meet the following 
+
+
+
+![](http://latex.codecogs.com/svg.latex?min\sum_{a \in A} t_a(x_a) \\
+s.t. \; x_a = \sum_{w \in W} \sum_{r \in R_w} f_{r,w}\delta_{a,r}, a\in A \\
+\sum_{r\in R_w} f_{r,w} = d_w, w \in W \\
+f_{r,w} \geq 0, r\in R_w, w \in W)
+
 
 
 ### Network Loading Models
+
+When there are serval choice for passengers, different ways will afford different demands. For example, if from point A to point B people can choose subway or taxi, different people will choose different ways. As a result, different approches will afford different loading.
 
 #### Choice Function
 
@@ -68,15 +81,17 @@ Wordrop equilibrium
 
 #### Logit-Based Loading Models 
 
+This logit modl is similar to the softmax.
+
+![](http://latex.codecogs.com/svg.latex?P_k=\frac{e^{V_k}}{\sum_{l=1}^K{e^{V_l}}}, \forall k \in K )
+
+A project based on the 
 
 
 
 
 
-
-![](http://latex.codecogs.com/svg.latex?t_a=e^{(\frac{q_a}{C_a})})
-
-
+## Network Problem
 
 ### Max-Flow Problem
 
@@ -85,6 +100,12 @@ Wordrop equilibrium
 
 
 ### Minimum Cost Flow
+
+
+
+## Simulation
+
+### Random Number
 
 
 
@@ -117,6 +138,10 @@ This part contains some issues introduced in *Nocedal J, Wright S. Numerical opt
 ### KKT Condition
 
 非约束优化中，最终
+
+
+
+### Dual Problem
 
 
 
