@@ -4,15 +4,15 @@
   * [BPR Function](#bpr-function)
   * [User Euqilibrium](#user-euqilibrium)
     + [Mathematical Model](#mathematical-model)
-    + [Heuristic method](#heuristic-method)
+    + [Heuristic method[Project Code]](#heuristic-method)
   * [Beckmann's Transformation](#beckmann-s-transformation)
-  * [Frank-Wolfe Algorithm](#frank-wolfe-algorithm)
+  * [Frank-Wolfe Algorithm[Project Code]](#frank-wolfe-algorithm)
   * [System Optimum](#system-optimum)
     + [Model Introduction](#model-introduction)
     + [Price of Anarchy](#price-of-anarchy)
   * [Network Loading Models](#network-loading-models)
     + [Choice Function](#choice-function)
-    + [Logit-Based Loading Models](#logit-based-loading-models)
+    + [Logit-Based Loading Models[Project Code]](#logit-based-loading-models)
 - [Network Problem](#network-problem)
   * [Max-Flow Problem](#max-flow-problem)
   * [Minimum Cost Flow](#minimum-cost-flow)
@@ -44,7 +44,6 @@
 
 
 
-
 ## Urban Transportation 
 
 This part contains some problems introduced in *Sheffi Y. Urban transportation networks[M]. Prentice-Hall, Englewood Cliffs, NJ, 1985* , wiki, and operation research
@@ -67,9 +66,13 @@ $S_a(Q_a)$ is the average travel time for a vehicle on link a
 
 #### Mathematical Model
 
-Wordrop equilibrium
+Passengers can not choose another route to lower their cost.
 
-<img src="img/image-20201122134743994.png" alt="image-20201122134743994" style="width:400px" />
+<img src="img/image-20201128200610675.png" alt="image-20201128200610675" style="width:700px;" />
+
+<img src="img/image-20201128203845278.png" alt="image-20201128203845278" style="width:700px;" />
+
+<img src="img/image-20201122134743994.png" alt="image-20201122134743994" style="width:500px" />
 
 <img src="img/1000px-EquilibriumAssignment3.png" alt="1000px-EquilibriumAssignment3" style="width:600px;" />
 
@@ -83,11 +86,13 @@ Wordrop equilibrium
 
 Beckmann's transformation can convert the euqilibrium into a convex problem
 
-<img src="img/image-20201122134920754.png" alt="image-20201122134920754" style="width:600px;" />
+<img src="img/image-20201122134920754.png" alt="image-20201122134920754" style="width:700px;" />
 
 ### Frank-Wolfe Algorithm
 
 Dafermos (1968) applied the [Frank-Wolfe algorithm](https://en.wikipedia.org/wiki/Frank-Wolfe_algorithm) (1956, Florian 1976), which can be used to deal with the traffic equilibrium problem. 
+
+<img src="img/Frank-Wolfe_Algorithm.png" alt="img" style="zoom: 33%;" />
 
 ### System Optimum
 
@@ -95,7 +100,7 @@ Dafermos (1968) applied the [Frank-Wolfe algorithm](https://en.wikipedia.org/wik
 
 The system condition should meet the following：
 
-<img src="/Users/sean/Documents/Projects/My Github/Transportation-and-Optimization-Notes/img/image-20201128034804725.png" alt="image-20201128034804725" style="width:300px;" />
+<img src="img/image-20201128034804725.png" alt="image-20201128034804725" style="width:300px;" />
 
 The KKT conditions of the SO problem:
 
@@ -127,7 +132,7 @@ This logit modl is similar to the softmax model.
 
 ![](http://latex.codecogs.com/svg.latex?P_k=\frac{e^{V_k}}{\sum_{l=1}^K{e^{V_l}}}, \forall k \in K )
 
-I have done a project compute the loading model using logit regression and general price which is introduced in xxx
+I have done a project compute the loading model using logit regression and general price which is introduced in 
 
 ## Network Problem
 
@@ -138,6 +143,8 @@ I have done a project compute the loading model using logit regression and gener
 
 
 ### Minimum Cost Flow
+
+
 
 
 
@@ -173,7 +180,7 @@ These four theorems introduce how to obtain the local optimal of a function $f$.
 
 ### Line Search Methods 
 
-#### Simple Introduction
+#### Introduction to Line Search
 
 In the *line search* strategy, the algorithm chooses a direction $p_k$ and searches along this direction from the current iterate $x_k$ for a new iterate with a lower function value. The distance to move along $p_k$ can be found by approximately solving the following one- dimensional minimization problem to find a step length α: 
 
@@ -181,11 +188,33 @@ In the *line search* strategy, the algorithm chooses a direction $p_k$ and searc
 
 We would derive the maximum benefit from the direction $p_k$ , but an exact minimization may be expensive and is usually unnecessary. Instead, the line search algorithm generates a limited number of trial step lengths until it finds one that loosely approximates the minimum of  this objective. At the new point, a new search direction and step length are computed, and the process is repeated. 
 
-#### Search Direction
+#### Steppest Direction
 
+<img src="img/image-20201128175350622.png" alt="image-20201128175350622" style="zoom:33%;" />
 
+<img src="img/image-20201128175415159.png" alt="image-20201128175415159" style="width:400px;" />
+
+#### Newton Direction
+
+<img src="img/image-20201128175312612.png" alt="image-20201128175312612" style="zoom: 33%;" />
+
+<img src="img/image-20201128175654739.png" alt="image-20201128175654739" style="width:200px;" />
+
+The Newton direction can be used in a line search method when $\nabla^2 f_k$ is positive definite, for in this case we have:
+
+<img src="img/image-20201128175850712.png" alt="image-20201128175850712" style="width:350px;" />
+
+Unlike the steepest descent direction, there is a “natural” step length of 1 associated with the Newton direction. Most line search implementations of Newton’s method use the unit step $\alpha = 1$  where possible and adjust α only when it does not produce a satisfactory reduction in the value of *f* . 
+
+中文参考资料：https://zhuanlan.zhihu.com/p/33544363
+
+### Scaling
+
+<img src="img/image-20201128193724922.png" alt="image-20201128193724922" style="width:500px;" />
 
 ### Trust Region
+
+Line search starts by fixing the direction $p_k$ and then identifying an appropriate distance, namely the step length $α_k$ . In trust region, we first choose a maximum distance—the trust-region radius $\Delta k$ —and then seek a direction and step that attain the best improvement possible subject to this distance constraint. If this step proves to be unsatisfactory, we reduce the distance measure $\Delta k$ and try again. 
 
 <img src="img/image-20201128033854279.png" alt="image-20201128033854279" style="width:700px;" />
 
@@ -209,19 +238,23 @@ In constrained optimization problem,
 
 
 
-### Newton's Method
-
-中文参考资料：https://zhuanlan.zhihu.com/p/33544363
 
 
 
-![preview](img/v2-49bedfeb68d993efbc8c764cc78c525c_r.png)
-
-![preview](img/v2-359458f4cbee86ecd0b4332b37553b8a_r.png)
 
 ### Quasi-Newton's Method
 
+*Quasi-Newton* search directions provide an attractive alternative to Newton’s method in that they do not require computation of the Hessian and yet still attain a superlinear rate of convergence.  In place of the true Hessian $\nabla^2 f_k$, they use an approximation $B_k$, which is updated after each step to take account of the additional knowledge gained during the step. 
 
+<img src="img/image-20201128180845670.png" alt="image-20201128180845670" style="width:300px;" />
+
+<img src="img/image-20201128181112829.png" alt="image-20201128181112829" style="width:400px;" />
+
+This is the BFGS update. One can show that BFGS update generates positive definite approximations whenever the initial approximation $B_0$ is positive definite and $s_k^T y_k$ > 0.
+
+The quasi-Newton search direction is:
+
+<img src="img/image-20201128181238814.png" alt="image-20201128181238814" style="width:180px;" />
 
 ### No-linear Equation
 
@@ -271,11 +304,13 @@ Local search is a heuristic approch for integer programming. This approache will
 
 
 
-## Reinforcement Learning
+## Reinforcement&Online Learning
 
-In schedule 
+RL has been applied to many NP-hard scenarios such as travel salesman problem and convex hull problem. In many problem with less 
 
+Online learning is similar to reinfocment learning and has more implementation scenarios. Many problems shall be solved on time and the decision will changed with the development of the environment.
 
+These two tools will be important to pobelms in carsharing and ridesharing in the future.
 
 ## 高等数学与线性代数
 
