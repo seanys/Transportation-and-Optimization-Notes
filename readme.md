@@ -68,13 +68,13 @@ $S_a(Q_a)$ is the average travel time for a vehicle on link a
 
 Passengers can not choose another route to lower their cost.
 
-<img src="img/image-20201128200610675.png" alt="image-20201128200610675" style="width:700px;" />
+<img src="img/image-20201128200610675.png" alt="image-20201128200610675" style="width:500px;" />
 
-<img src="img/image-20201128203845278.png" alt="image-20201128203845278" style="width:700px;" />
+<img src="img/image-20201128203845278.png" alt="image-20201128203845278" style="width:500px;" />
 
 <img src="img/image-20201122134743994.png" alt="image-20201122134743994" style="width:500px" />
 
-<img src="img/1000px-EquilibriumAssignment3.png" alt="1000px-EquilibriumAssignment3" style="width:600px;" />
+<img src="img/1000px-EquilibriumAssignment3.png" alt="1000px-EquilibriumAssignment3" style="width:500px;" />
 
 #### Heuristic method
 
@@ -86,13 +86,13 @@ Passengers can not choose another route to lower their cost.
 
 Beckmann's transformation can convert the euqilibrium into a convex problem
 
-<img src="img/image-20201122134920754.png" alt="image-20201122134920754" style="width:700px;" />
+<img src="img/image-20201122134920754.png" alt="image-20201122134920754" style="width:500px;" />
 
 ### Frank-Wolfe Algorithm
 
 Dafermos (1968) applied the [Frank-Wolfe algorithm](https://en.wikipedia.org/wiki/Frank-Wolfe_algorithm) (1956, Florian 1976), which can be used to deal with the traffic equilibrium problem. 
 
-<img src="img/Frank-Wolfe_Algorithm.png" alt="img" style="zoom: 33%;" />
+<img src="img/Frank-Wolfe_Algorithm.png" alt="img" style="width:500px;" />
 
 ### System Optimum
 
@@ -216,7 +216,7 @@ Unlike the steepest descent direction, there is a “natural” step length of 1
 
 Line search starts by fixing the direction $p_k$ and then identifying an appropriate distance, namely the step length $α_k$ . In trust region, we first choose a maximum distance—the trust-region radius $\Delta k$ —and then seek a direction and step that attain the best improvement possible subject to this distance constraint. If this step proves to be unsatisfactory, we reduce the distance measure $\Delta k$ and try again. 
 
-<img src="img/image-20201128033854279.png" alt="image-20201128033854279" style="width:700px;" />
+<img src="img/image-20201128033854279.png" alt="image-20201128033854279" style="width:500px;" />
 
 ### KKT Condition
 
