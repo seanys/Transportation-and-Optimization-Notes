@@ -68,13 +68,13 @@ $S_a(Q_a)$ is the average travel time for a vehicle on link a
 
 Passengers can not choose another route to lower their cost.
 
-<img src="img/image-20201128200610675.png" alt="image-20201128200610675" style="width:700px;" />
+<img src="img/image-20201128200610675.png" alt="image-20201128200610675" width="700" align="center" />
 
-<img src="img/image-20201128203845278.png" alt="image-20201128203845278" style="width:700px;" />
+<img src="img/image-20201128203845278.png" alt="image-20201128203845278" width="700" align="center" />
 
-<img src="img/image-20201122134743994.png" alt="image-20201122134743994" style="width:500px" />
+<img src="img/image-20201122134743994.png" alt="image-20201122134743994" width="500" align="center" />
 
-<img src="img/1000px-EquilibriumAssignment3.png" alt="1000px-EquilibriumAssignment3" style="width:600px;" />
+<img src="img/1000px-EquilibriumAssignment3.png" alt="1000px-EquilibriumAssignment3" width="600" align="center" />
 
 #### Heuristic method
 
@@ -86,13 +86,13 @@ Passengers can not choose another route to lower their cost.
 
 Beckmann's transformation can convert the euqilibrium into a convex problem
 
-<img src="img/image-20201122134920754.png" alt="image-20201122134920754" width="200" />
+<img src="img/image-20201122134920754.png" alt="image-20201122134920754" width="600" align="center" />
 
 ### Frank-Wolfe Algorithm
 
 Dafermos (1968) applied the [Frank-Wolfe algorithm](https://en.wikipedia.org/wiki/Frank-Wolfe_algorithm) (1956, Florian 1976), which can be used to deal with the traffic equilibrium problem. 
 
-<img src="img/Frank-Wolfe_Algorithm.png" alt="img" style="zoom: 33%;" />
+<img src="img/Frank-Wolfe_Algorithm.png" alt="img"  width="700" align="center" />
 
 ### System Optimum
 
@@ -100,11 +100,11 @@ Dafermos (1968) applied the [Frank-Wolfe algorithm](https://en.wikipedia.org/wik
 
 The system condition should meet the following：
 
-<img src="img/image-20201128034804725.png" alt="image-20201128034804725" style="width:300px;" />
+<img src="img/image-20201128034804725.png" alt="image-20201128034804725" width="300" align="center" />
 
 The KKT conditions of the SO problem:
 
-<img src="img/image-20201128034709559.png" alt="image-20201128034709559" style="width:500px;" />
+<img src="img/image-20201128034709559.png" alt="image-20201128034709559" width="500" align="center" />
 
 It is a simple problem to solve compared with the user euqilibrium.
 
@@ -184,25 +184,25 @@ These four theorems introduce how to obtain the local optimal of a function $f$.
 
 In the *line search* strategy, the algorithm chooses a direction $p_k$ and searches along this direction from the current iterate $x_k$ for a new iterate with a lower function value. The distance to move along $p_k$ can be found by approximately solving the following one- dimensional minimization problem to find a step length α: 
 
-<img src="img/image-20201128034037517.png" alt="image-20201128034037517" style="width:150px;" />
+<img src="img/image-20201128034037517.png" alt="image-20201128034037517" width="150" align="center" />
 
 We would derive the maximum benefit from the direction $p_k$ , but an exact minimization may be expensive and is usually unnecessary. Instead, the line search algorithm generates a limited number of trial step lengths until it finds one that loosely approximates the minimum of  this objective. At the new point, a new search direction and step length are computed, and the process is repeated. 
 
 #### Steppest Direction
 
-<img src="img/image-20201128175350622.png" alt="image-20201128175350622" style="zoom:33%;" />
+<img src="img/image-20201128175350622.png" alt="image-20201128175350622" width="300" align="center" />
 
-<img src="img/image-20201128175415159.png" alt="image-20201128175415159" style="width:400px;" />
+<img src="img/image-20201128175415159.png" alt="image-20201128175415159" width="500" align="center" />
 
 #### Newton Direction
 
-<img src="img/image-20201128175312612.png" alt="image-20201128175312612" style="zoom: 33%;" />
+<img src="img/image-20201128175312612.png" alt="image-20201128175312612" width="400" align="center"/>
 
-<img src="img/image-20201128175654739.png" alt="image-20201128175654739" style="width:200px;" />
+<img src="img/image-20201128175654739.png" alt="image-20201128175654739" width="200" align="center" />
 
 The Newton direction can be used in a line search method when $\nabla^2 f_k$ is positive definite, for in this case we have:
 
-<img src="img/image-20201128175850712.png" alt="image-20201128175850712" style="width:350px;" />
+<img src="img/image-20201128175850712.png" alt="image-20201128175850712" width="350" align="center" />
 
 Unlike the steepest descent direction, there is a “natural” step length of 1 associated with the Newton direction. Most line search implementations of Newton’s method use the unit step $\alpha = 1$  where possible and adjust α only when it does not produce a satisfactory reduction in the value of *f* . 
 
@@ -210,13 +210,13 @@ Unlike the steepest descent direction, there is a “natural” step length of 1
 
 ### Scaling
 
-<img src="img/image-20201128193724922.png" alt="image-20201128193724922" style="width:500px;" />
+<img src="img/image-20201128193724922.png" alt="image-20201128193724922" width="500" align="center" />
 
 ### Trust Region
 
 Line search starts by fixing the direction $p_k$ and then identifying an appropriate distance, namely the step length $α_k$ . In trust region, we first choose a maximum distance—the trust-region radius $\Delta k$ —and then seek a direction and step that attain the best improvement possible subject to this distance constraint. If this step proves to be unsatisfactory, we reduce the distance measure $\Delta k$ and try again. 
 
-<img src="img/image-20201128033854279.png" alt="image-20201128033854279" style="width:700px;" />
+<img src="img/image-20201128033854279.png" alt="image-20201128033854279" width="700" align="center" />
 
 ### KKT Condition
 
@@ -246,15 +246,15 @@ In constrained optimization problem,
 
 *Quasi-Newton* search directions provide an attractive alternative to Newton’s method in that they do not require computation of the Hessian and yet still attain a superlinear rate of convergence.  In place of the true Hessian $\nabla^2 f_k$, they use an approximation $B_k$, which is updated after each step to take account of the additional knowledge gained during the step. 
 
-<img src="img/image-20201128180845670.png" alt="image-20201128180845670" style="width:300px;" />
+<img src="img/image-20201128180845670.png" alt="image-20201128180845670" width="300" align="center" />
 
-<img src="img/image-20201128181112829.png" alt="image-20201128181112829" style="width:400px;" />
+<img src="img/image-20201128181112829.png" alt="image-20201128181112829" width="400" align="center" />
 
 This is the BFGS update. One can show that BFGS update generates positive definite approximations whenever the initial approximation $B_0$ is positive definite and $s_k^T y_k$ > 0.
 
 The quasi-Newton search direction is:
 
-<img src="img/image-20201128181238814.png" alt="image-20201128181238814" style="width:180px;" />
+<img src="img/image-20201128181238814.png" alt="image-20201128181238814" width="180" align="center" />
 
 ### No-linear Equation
 
