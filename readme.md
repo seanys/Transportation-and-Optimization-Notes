@@ -86,7 +86,7 @@ Passengers can not choose another route to lower their cost.
 
 Beckmann's transformation can convert the euqilibrium into a convex problem
 
-<img src="img/image-20201122134920754.png" alt="image-20201122134920754" width="700px" style="width:700px;" />
+<img src="img/image-20201122134920754.png" alt="image-20201122134920754" width="200px" />
 
 ### Frank-Wolfe Algorithm
 
