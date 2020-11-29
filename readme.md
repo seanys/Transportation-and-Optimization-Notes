@@ -233,16 +233,6 @@ In constrained optimization problem,
 
 
 
-### Dual Problem
-
-
-
-
-
-
-
-
-
 ### Quasi-Newton's Method
 
 *Quasi-Newton* search directions provide an attractive alternative to Newton’s method in that they do not require computation of the Hessian and yet still attain a superlinear rate of convergence.  In place of the true Hessian $\nabla^2 f_k$, they use an approximation $B_k$, which is updated after each step to take account of the additional knowledge gained during the step. 
@@ -261,7 +251,15 @@ The quasi-Newton search direction is:
 
 
 
+### Dual Problem
 
+There are several properties of dual problem.
+
+Strong 
+
+Weak
+
+Shadow Price
 
 
 
