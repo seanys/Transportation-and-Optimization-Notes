@@ -1,5 +1,6 @@
 import xlrd
 from copy import deepcopy
+import numpy as np
 
 def getID(i,j):
     return ("%04d%04d")%(i,j)
@@ -35,9 +36,7 @@ for i in range(1,26):
 # print(ALL_VERTEXES)
 # print(ALL_EDGES)
 
-class LineSearch():
-    def __init__(self):
-        pass
+
 
 class TrafficAssignment():
     def __init__(self):
@@ -128,3 +127,4 @@ class TrafficAssignment():
 
 if __name__ == '__main__':
     TrafficAssignment()
+

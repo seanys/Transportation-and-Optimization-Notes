@@ -1,4 +1,6 @@
-## Content
+
+
+# Content
 
 - [Urban Transportation](#urban-transportation)
   * [BPR Function](#bpr-function)
@@ -44,11 +46,11 @@
 
 
 
-## Urban Transportation 
+# Urban Transportation 
 
 This part contains some problems introduced in *Sheffi Y. Urban transportation networks[M]. Prentice-Hall, Englewood Cliffs, NJ, 1985* , wiki, and operation research
 
-### BPR Function
+## BPR Function
 
 Suppose we are considering a highway network. For each link there is a function stating the relationship between resistance and volume of traffic. The Bureau of Public Roads (BPR) developed a link (arc) congestion (or volume-delay, or link performance) function.
 
@@ -62,9 +64,9 @@ $c_a$ = capacity of link a per unit of time
 
 $S_a(Q_a)$ is the average travel time for a vehicle on link a
 
-### User Euqilibrium
+## User Euqilibrium
 
-#### Mathematical Model
+### Mathematical Model
 
 Passengers can not choose another route to lower their cost.
 
@@ -76,27 +78,27 @@ Passengers can not choose another route to lower their cost.
 
 <img src="img/1000px-EquilibriumAssignment3.png" alt="1000px-EquilibriumAssignment3" width="600" align="center" />
 
-#### Heuristic method
+### Heuristic method
 
 1. All or Nothing
 
 2. Incremental Assignment
 
-### Beckmann's Transformation
+## Beckmann's Transformation
 
 Beckmann's transformation can convert the euqilibrium into a convex problem
 
 <img src="img/image-20201122134920754.png" alt="image-20201122134920754" width="600" align="center" />
 
-### Frank-Wolfe Algorithm
+## Frank-Wolfe Algorithm
 
 Dafermos (1968) applied the [Frank-Wolfe algorithm](https://en.wikipedia.org/wiki/Frank-Wolfe_algorithm) (1956, Florian 1976), which can be used to deal with the traffic equilibrium problem. 
 
 <img src="img/Frank-Wolfe_Algorithm.png" alt="img"  width="500" align="center" />
 
-### System Optimum
+## System Optimum
 
-#### Model Introduction
+### Model Introduction
 
 The system condition should meet the following：
 
@@ -108,7 +110,7 @@ The KKT conditions of the SO problem:
 
 It is a simple problem to solve compared with the user euqilibrium.
 
-#### Price of Anarchy
+### Price of Anarchy
 
 The reason we have congestion is that people are selfish. The cost of that selfishness (when people behave according to their own interest rather than society's) is the price of anarchy*.
 
@@ -118,55 +120,107 @@ Price of Anarchy = ![{\displaystyle UE/SO>1}](https://wikimedia.org/api/rest_v1/
 
 For a two-link network with linear link performance functions (latency functions), Price of Anarchy is < 4/3.
 
-### Network Loading Models
+## Network Loading Models
 
 When there are serval choice for passengers, different ways will afford different demands. For example, if from point A to point B people can choose subway or taxi, different people will choose different ways. As a result, different approches will afford different loading.
 
-#### Choice Function
+### Choice Function
 
 
 
-#### Logit-Based Loading Models 
+### Logit-Based Loading Models 
 
 This logit modl is similar to the softmax model.
 
 ![](http://latex.codecogs.com/svg.latex?P_k=\frac{e^{V_k}}{\sum_{l=1}^K{e^{V_l}}}, \forall k \in K )
 
-I have done a project compute the loading model using logit regression and general price which is introduced in xxx
+For example, when there are serval ways to get the destination from origin, passengers will choose one of them depending on the general price. []
 
-## Network Problem
+# Network Problem
 
-### Max-Flow Problem
+## Shortest Path Problem
+
+Refer to my another repository: https://github.com/seanys/Data-Structure-Algoirthm-Tongji-SEM
+
+## Graph Algorithm
+
+Refer to my another repository: https://github.com/seanys/Data-Structure-Algoirthm-Tongji-SEM
+
+## Max-Flow Problem
+
+### Ford-Fulkerson
+
+Only can handle network that capacity is rational. Just find augument path iteratively.
+
+<img src="img/image-20201130215025556.png" alt="image-20201130215025556" width ="600px" />
+
+### Capacity Scaling Algorithm
+
+Similar to ford-fulkerson.
+
+<img src="img/image-20201130215311730.png" alt="image-20201130215311730" width="600px" />
+
+### Preflow Push Algorithm
+
+
+
+<img src="img/image-20201130215615845.png" alt="image-20201130215615845" width="600px" />
+
+### Application
+
+The same as shortest path problem, many issues can be converted to max-flow problem.
+
+<img src="img/image-20201201011059155.png" alt="image-20201201011059155" width="600px" />
+
+<img src="img/image-20201201011150282.png" alt="image-20201201011150282" width="600px" />
+
+## Minimum Cost Flow
+
+### Cycle canceling algorithm 
+
+<img src="img/image-20201201011927115.png" alt="image-20201201011927115" width="400px" />
+
+<img src="img/image-20201201012158423.png" alt="image-20201201012158423" width="500px" />
+
+### Successive shortest path algorithm 
+
+Need review.
+
+<img src="img/image-20201201022715681.png" alt="image-20201201022715681" width="600px" />
+
+<img src="img/image-20201201022737324.png" alt="image-20201201022737324" width="600px" />
+
+### Application-Assignment
+
+<img src="img/image-20201201011409080.png" alt="image-20201201011409080" width="600px" />
+
+<img src="img/image-20201201011531758.png" alt="image-20201201011531758" width="600px" />
+
+### Application-Schedule
+
+<img src="img/image-20201201011641321.png" alt="image-20201201011641321" width="600px" />
+
+<img src="img/image-20201201011729314.png" alt="image-20201201011729314" width="500px" />
+
+# Simulation
+
+## Random Number
+
+
+
+## Queueing Theory
 
 
 
 
 
-### Minimum Cost Flow
 
 
-
-
-
-## Simulation
-
-### Random Number
-
-
-
-### Queueing Theory
-
-
-
-
-
-
-
-## Optimization Problem
+# Optimization Problem
 
 This part contains some issues introduced in *Nocedal J, Wright S. Numerical optimization[M]. Springer Science & Business Media, 2006* and *Boyd S, Boyd S P, Vandenberghe L. Convex optimization[M]. Cambridge university press, 2004*.
 
-### Unconstrained Optimization
+## Unconstrained Optimization
 
 **First Oder Necessary Conditions**: If $x^*$ is a local minimizer and $f$ is continuously differentiable in an open neighborhood of $x^*$, then $\nabla  f(x^∗)=0$ .
 
@@ -178,9 +232,9 @@ This part contains some issues introduced in *Nocedal J, Wright S. Numerical opt
 
 These four theorems introduce how to obtain the local optimal of a function $f$. Moreover, if $f$ if convex, any local minimizer $x^*$ is a global minimizer. If $f$ is differentiable, then any stationary point $x^*$ is a global minimizer.
 
-### Line Search Methods 
+## Line Search Methods 
 
-#### Introduction to Line Search
+### Introduction to Line Search
 
 In the *line search* strategy, the algorithm chooses a direction $p_k$ and searches along this direction from the current iterate $x_k$ for a new iterate with a lower function value. The distance to move along $p_k$ can be found by approximately solving the following one- dimensional minimization problem to find a step length α: 
 
@@ -188,14 +242,14 @@ In the *line search* strategy, the algorithm chooses a direction $p_k$ and searc
 
 We would derive the maximum benefit from the direction $p_k$ , but an exact minimization may be expensive and is usually unnecessary. Instead, the line search algorithm generates a limited number of trial step lengths until it finds one that loosely approximates the minimum of  this objective. At the new point, a new search direction and step length are computed, and the process is repeated. 
 
-#### Steppest Direction
+### Steppest Direction
 
 <img src="img/image-20201128175350622.png" alt="image-20201128175350622" width="200" align="center" />
 
 <img src="img/image-20201128175415159.png" alt="image-20201128175415159" width="500" align="center" />
 
 
-#### Newton Direction
+### Newton Direction
 
 <img src="img/image-20201128175312612.png" alt="image-20201128175312612" width="400" align="center"/>
 
@@ -209,17 +263,17 @@ Unlike the steepest descent direction, there is a “natural” step length of 1
 
 中文参考资料：https://zhuanlan.zhihu.com/p/33544363
 
-### Scaling
+## Scaling
 
 <img src="img/image-20201128193724922.png" alt="image-20201128193724922" width="500" align="center" />
 
-### Trust Region
+## Trust Region
 
 Line search starts by fixing the direction $p_k$ and then identifying an appropriate distance, namely the step length $α_k$ . In trust region, we first choose a maximum distance—the trust-region radius $\Delta k$ —and then seek a direction and step that attain the best improvement possible subject to this distance constraint. If this step proves to be unsatisfactory, we reduce the distance measure $\Delta k$ and try again. 
 
 <img src="img/image-20201128033854279.png" alt="image-20201128033854279" width="700" align="center" />
 
-### KKT Condition
+## KKT Condition
 
 In constrained optimization problem, 
 
@@ -227,13 +281,13 @@ In constrained optimization problem,
 
 
 
-### Leat-Squared Problems
+## Leat-Squared Problems
 
 
 
 
 
-### Quasi-Newton's Method
+## Quasi-Newton's Method
 
 *Quasi-Newton* search directions provide an attractive alternative to Newton’s method in that they do not require computation of the Hessian and yet still attain a superlinear rate of convergence.  In place of the true Hessian $\nabla^2 f_k$, they use an approximation $B_k$, which is updated after each step to take account of the additional knowledge gained during the step. 
 
@@ -247,11 +301,11 @@ The quasi-Newton search direction is:
 
 <img src="img/image-20201128181238814.png" alt="image-20201128181238814" width="180" align="center" />
 
-### No-linear Equation
+## No-linear Equation
 
 
 
-### Dual Problem
+## Dual Problem
 
 There are several properties of dual problem.
 
@@ -263,47 +317,47 @@ Shadow Price
 
 
 
-## Integer Programming
+# Integer Programming
 
-### Branch and Bound
-
-编辑中
-
-### Branch and Cut
+## Branch and Bound
 
 编辑中
 
-### Branch and Price
+## Branch and Cut
 
 编辑中
 
-### Lagrangian Decomposition
+## Branch and Price
+
+编辑中
+
+## Lagrangian Decomposition
 
 
 
 编辑中
 
-### Column Generation
+## Column Generation
 
 编辑中
 
-### DW Decomposition
+## DW Decomposition
 
 编辑中
 
-### Bender Decomposition
+## Bender Decomposition
 
 编辑中
 
 
 
-### Iterated Local Search
+## Iterated Local Search
 
 Local search is a heuristic approch for integer programming. This approache will limit the searching region and search the local region of the initial solution iteratively. However, the solution time depends on the initial solution and it may fall into local optimum.
 
 
 
-## Reinforcement&Online Learning
+# Reinforcement&Online Learning
 
 RL has been applied to many NP-hard scenarios such as travel salesman problem and convex hull problem. In many problem with less 
 
@@ -311,23 +365,23 @@ Online learning is similar to reinfocment learning and has more implementation s
 
 These two tools will be important to pobelms in carsharing and ridesharing in the future.
 
-## 高等数学与线性代数
+# 高等数学与线性代数
 
-### 泰勒与拉格朗日展开
+## 泰勒与拉格朗日展开
 
 
 
-### 多元二阶泰勒展开
+## 多元二阶泰勒展开
 
 证明过程中文版：多元函数的泰勒展开式 -  https://zhuanlan.zhihu.com/p/33316479
 
 ![img](img/v2-84f1ca33aaebdaae45dd570d3d9b6cef_1440w.png)
 
-### 拉普拉斯展开
+## 拉普拉斯展开
 
 
 
 
 
-### 统计学
+## 统计学
 
