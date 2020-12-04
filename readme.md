@@ -66,6 +66,20 @@ $S_a(Q_a)$ is the average travel time for a vehicle on link a
 
 ## User Euqilibrium
 
+**In brief, A network is in user equilibrium (UE) when every driver chooses the routes in its lowest cost between origin and destination regardless whether total system cost is minimized.**
+
+The user optimum equilibrium assumes that all users choose their own route towards their destination based on the travel time that will be consumed in different route options. The users will choose the route which requires the least travel time. The user optimum model is often used in simulating the impact on traffic assignment by highway bottlenecks. When the congestion occurs on highway, it will extend the delay time in travelling through the highway and create a longer travel time. Under the user optimum assumption, the users would choose to wait until the travel time using a certain freeway is equal to the travel time using city streets, and hence equilibrium is reached. This equilibrium is called User Equilibrium, Wardrop Equilibrium or Nash Equilibrium.
+
+[![img](https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/User_equilibrium_traffic_model.jpg/400px-User_equilibrium_traffic_model.jpg)](https://en.wikipedia.org/wiki/File:User_equilibrium_traffic_model.jpg)
+
+Figure 1. User equilibrium traffic model
+
+The core principle of User Equilibrium is that all used routes between a given OD pair have the same travel time. An alternative route option is enabled to use when the actual travel time in the system has reached the free-flow travel time on that route.
+
+For a highway user optimum model considering one alternative route, a typical process of traffic assignment is shown in figure 15. When the traffic demand stays below the highway capacity, the delay time on highway stays zero. When the traffic demand exceeds the capacity, the queue of vehicle will appear on the highway and the delay time will increase. Some of users will turn to the city streets when the delay time reaches the difference between the free-flow travel time on highway and the free-flow travel time on city streets. It indicates that the users staying on the highway will spend as much travel time as the ones who turn to the city streets. At this stage, the travel time on both the highway and the alternative route stays the same. This situation may be ended when the demand falls below the road capacity, that is the travel time on highway begins to decrease and all the users will stay on the highway. The total of part area 1 and 3 represents the benefits by providing an alternative route. The total of area 4 and area 2 shows the total delay cost in the system, in which area 4 is the total delay occurs on the highway and area 2 is the extra delay by shifting traffic to city streets.
+
+Navigation function in Google Maps can be referred as a typical industrial application of dynamic traffic assignment based on User Equilibrium since it provides every user the routing option in lowest cost (travel time).
+
 ### Mathematical Model
 
 Passengers can not choose another route to lower their cost.
@@ -98,6 +112,12 @@ Dafermos (1968) applied the [Frank-Wolfe algorithm](https://en.wikipedia.org/wik
 
 ## System Optimum
 
+**In short, a network is in system optimum (SO) when the total system cost is the minimum among all possible assignments.**
+
+System Optimum is based on the assumption that routes of all vehicles would be controlled by the system, and that rerouting would be based on maximum utilization of resources and minimum total system cost. (Cost can be interpreted as travel time.) Hence, in a System Optimum routing algorithm, all routes between a given OD pair have the same marginal cost. In traditional transportation economics, System Optimum is determined by equilibrium of demand function and marginal cost function. In this approach, marginal cost is roughly depicted as increasing function in traffic congestion. In traffic flow approach, the marginal cost of the trip can be expressed as sum of the cost(delay time, w) experienced by the driver and the externality(e) that a driver imposes on the rest of the users.
+
+Suppose there is a freeway(0) and an alternative route(1), which users can be diverted onto off-ramp. Operator knows total arrival rate(A(t)), the capacity of the freeway(μ_0), and the capacity of the alternative route(μ_1). From the time $t_0$, when freeway is congested, some of the users start moving to alternative route. However, when $t_1$, alternative route is also full of capacity. Now operator decides the number of vehicles(N), which use alternative route. The optimal number of vehicles(N) can be obtained by calculus of variation, to make marginal cost of each route equal. Thus, optimal condition is $T_0=T_1+∆_1$. In this graph, we can see that the queue on the alternative route should clear $∆_1$ time units before it clears from the freeway. This solution does not define how we should allocates vehicles arriving between $t_1$ and $T_1$, we just can conclude that the optimal solution is not unique. If operator wants freeway not to be congested, operator can impose the congestion toll, $e_0-e_1$, which is the difference between the externality of freeway and alternative route. In this situation, freeway will maintain free flow speed, however alternative route will be extremely congested.
+
 ### Model Introduction
 
 The system condition should meet the following：
@@ -116,25 +136,88 @@ The reason we have congestion is that people are selfish. The cost of that selfi
 
 The ratio of system-wide travel time under User Equilibrium and System Optimal conditions.
 
-Price of Anarchy = ![{\displaystyle UE/SO>1}](https://wikimedia.org/api/rest_v1/media/math/render/svg/00734c2d51653a837331cfad02d15c6e66395909)
-
 For a two-link network with linear link performance functions (latency functions), Price of Anarchy is < 4/3.
 
 ## Network Loading Models
+
+*Review is required*
+
+### Why investigate?
 
 When there are serval choice for passengers, different ways will afford different demands. For example, if from point A to point B people can choose subway or taxi, different people will choose different ways. As a result, different approches will afford different loading.
 
 ### Choice Function
 
+Let $U = (U_1, ... , U_K)$ denote the vector of utilities associated with a given set of alternatives, $K$. This set includes K alternative snumbered 1, 2, ... , *K.* The utility of each alternative to a specific decision maker can be expressed as a function of the observed attributes of the alternatives and the observed characteristics of this decision maker. Let **a** denote the vector of variables which include these characteristics and attributes. Thus $U_k = U_k(a)$. To incorporate the effects of unobserved attributes and characteristics, the utility of each alternative is expressed as a random variable consisting of a systematic (deterministic) component, $V_k(a)$,and an additive random "error term", **k(a),**that is, 
+$$
+U_k(a) = V_k(a)+\xi_k(a)\;\forall k \in K
+$$
+
+
+
+The random component of the utility satisfies $E[\xi_k(a)]= 0$, meaning that $E[U_k(a)] = V_k(a)$.In this context, Uk(a) is sometimes referred to as the "per- ceived utility" and $V_k(a)$ as the "measured utility."
+
+The choice probability is then the probability that $U_k(a)$ is higher than the utility of any other alternative and 
+$$
+P_k(s) = Pr[I_k(a)\geq U_l(a), \forall l \in K] \;\;\; \forall k \in K
+$$
 
 
 ### Logit-Based Loading Models 
 
 This logit modl is similar to the softmax model.
 
-![](http://latex.codecogs.com/svg.latex?P_k=\frac{e^{V_k}}{\sum_{l=1}^K{e^{V_l}}}, \forall k \in K )
+<img src="img/image-20201201154032854.png" alt="image-20201201154032854" width="200px" />
 
-For example, when there are serval ways to get the destination from origin, passengers will choose one of them depending on the general price. []
+Project based on this model: [network-loading-model](network-loading-model)
+
+## Traffic bottleneck
+
+Traffic bottlenecks are disruptions of traffic on a roadway caused either due to road design, traffic lights, or accidents. There are two general types of bottlenecks, stationary and moving bottlenecks. Stationary bottlenecks are those that arise due to a disturbance that occurs due to a stationary situation like narrowing of a roadway, an accident. Moving bottlenecks on the other hand are those vehicles or vehicle behavior that causes the disruption in the vehicles which are upstream of the vehicle. Generally, moving bottlenecks are caused by heavy trucks as they are slow moving vehicles with less acceleration and also may make lane changes.
+
+[![img](https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Percentage_split_of_causes_of_Traffic_Congestion.png/350px-Percentage_split_of_causes_of_Traffic_Congestion.png)](https://en.wikipedia.org/wiki/File:Percentage_split_of_causes_of_Traffic_Congestion.png)
+
+Bottlenecks are important considerations because they impact the flow in traffic, the average speeds of the vehicles. The main consequence of a bottleneck is an immediate reduction in capacity of the roadway. The Federal Highway Authority has stated that 40% of all congestion is from bottlenecks figure 16 shows the pie-chart for various causes of congestion. Figure 17 shows the common causes of congestion or bottlenecks.
+
+### Stationary bottleneck
+
+The general cause of stationary bottlenecks are lane drops which occurs when the a multilane roadway loses one or more its lane. This causes the vehicular traffic in the ending lanes to merge onto the other lanes.
+
+[![img](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Wikipedia_TrafficBottlenecks_regular.svg/350px-Wikipedia_TrafficBottlenecks_regular.svg.png)](https://en.wikipedia.org/wiki/File:Wikipedia_TrafficBottlenecks_regular.svg)
+
+Consider a stretch of highway with two lanes in one direction. Suppose that the fundamental diagram is modeled as shown here. The highway has a peak capacity of Q vehicles per hour, corresponding to a density of kc vehicles per mile. The highway normally becomes jammed at kj vehicles per mile.
+
+Before capacity is reached, traffic may flow at A vehicles per hour, or a higher B vehicles per hour. In either case, the speed of vehicles is vf, or "free flow," because the roadway is under capacity.
+
+Now, suppose that at a certain location x0, the highway narrows to one lane. The maximum capacity is now limited to D', or half of Q, since only one lane of the two is available. D shares the same flowrate as state D', but its vehicular density is higher.
+
+[![img](https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Wikipedia_TrafficBottlenecks_regular_tsd.svg/350px-Wikipedia_TrafficBottlenecks_regular_tsd.svg.png)](https://en.wikipedia.org/wiki/File:Wikipedia_TrafficBottlenecks_regular_tsd.svg)
+
+Using a time-space diagram, we may model the bottleneck event. Suppose that at time 0, traffic begins to flow at rate B and speed vf. After time t1, vehicles arrive at the lower flowrate A.
+
+Before the first vehicles reach location x0, the traffic flow is unimpeded. However, downstream of x0, the roadway narrows, reducing the capacity by half – and to below that of state B. Due to this, vehicles will begin queuing upstream of x0. This is represented by high-density state D. The vehicle speed in this state is the slower vd, as taken from the fundamental diagram. Downstream of the bottleneck, vehicles transition to state D', where they again travel at free-flow speed vf.
+
+Once vehicles arrive at rate A starting at t1, the queue will begin to clear and eventually dissipate. State A has a flowrate below the one-lane capacity of states D and D'.
+
+On the time-space diagram, a sample vehicle trajectory is represented with a dotted arrow line. The diagram can readily represent vehicular delay and queue length. It is a simple matter of taking horizontal and vertical measurements within the region of state D.
+
+### Moving bottleneck
+
+As explained above, moving bottlenecks are caused due to slow moving vehicles that cause disruption in traffic. Moving bottlenecks can be active or inactive bottlenecks. If the reduced capacity(qu) caused due to a moving bottleneck is greater than the actual capacity(μ) downstream of the vehicle, then this bottleneck is said to be an active bottleneck. Figure 20 shows the case of a truck moving with velocity 'v' approaching a downstream location with capacity 'μ'. If the reduced capacity of the truck (qu) is less than the downstream capacity, then the truck becomes an inactive bottleneck.
+
+[![img](https://upload.wikimedia.org/wikipedia/commons/6/66/Active_Inactive_Moving_Bottleneck1.PNG)](https://en.wikipedia.org/wiki/File:Active_Inactive_Moving_Bottleneck1.PNG)
+
+Laval 2009, presents a framework for estimating analytical expressions for the capacity reductions caused by a subset of vehicles forced to slow down at horizontal/vertical curves on multilane freeway. In each of the lane the underperforming stream is described in terms of its desired speed distribution and is modeled as per Newell’s kinematic wave theory for moving bottlenecks. Lane changing in the presence of trucks can lead to a positive or negative impact on capacity. If the target lane is empty then the lane-changing increases capacity
+
+For this example, consider three lanes of traffic in one direction. Assume that a truck starts traveling at speed v, slower than the free flow speed vf. As shown on the fundamental diagram below, qu represents the reduced capacity (2/3 of Q, or 2 of 3 lanes available) around the truck.
+
+State A represents normal approaching traffic flow, again at speed vf. State U, with flowrate qu, corresponds to the queuing upstream of the truck. On the fundamental diagram, vehicle speed vu is slower than vf. But once drivers have navigated around the truck, they can again speed up and transition to downstream state D. While this state travels at free flow, the vehicle density is less because fewer vehicles get around the bottleneck.
+
+[![img](https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wikipedia_TrafficBottlenecks_moving1.svg/350px-Wikipedia_TrafficBottlenecks_moving1.svg.png)](https://en.wikipedia.org/wiki/File:Wikipedia_TrafficBottlenecks_moving1.svg)
+
+Suppose that, at time t, the truck slows from free-flow to v. A queue builds behind the truck, represented by state U. Within the region of state U, vehicles drive slower as indicated by the sample trajectory. Because state U limits to a smaller flow than state A, the queue will back up behind the truck and eventually crowd out the entire highway (slope s is negative). If state U had the higher flow, there would still be a growing queue. However, it would not back up because the slope s would be positive.
+
+[![img](https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Wikipedia_TrafficBottlenecks_moving1_tsd.svg/350px-Wikipedia_TrafficBottlenecks_moving1_tsd.svg.png)](https://en.wikipedia.org/wiki/File:Wikipedia_TrafficBottlenecks_moving1_tsd.svg)
 
 # Network Problem
 
