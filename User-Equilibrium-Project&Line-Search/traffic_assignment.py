@@ -1,6 +1,6 @@
 import xlrd
 from copy import deepcopy
-import numpy as np
+from line_search import LineSearch
 
 def getID(i,j):
     return ("%04d%04d")%(i,j)
@@ -10,11 +10,7 @@ ALL_CONNECTION = ALL_DATA.sheets()[0]
 ALL_DISTANCE = ALL_DATA.sheets()[1]
 ALL_FLOW_DATA = ALL_DATA.sheets()[3]
 ALL_VERTEXES,ALL_EDGES = {},{}
-
-ALL_DELTA = []
-
 for i in range(1,26):
-    ALL_DELTA.append()
     row_connection = ALL_CONNECTION.row_values(i)
     row_distance = ALL_DISTANCE.row_values(i)
     ALL_VERTEXES[i] = {
@@ -35,8 +31,7 @@ for i in range(1,26):
 
 # print(ALL_VERTEXES)
 # print(ALL_EDGES)
-
-
+    
 
 class TrafficAssignment():
     def __init__(self):
@@ -64,6 +59,21 @@ class TrafficAssignment():
                 fo.write("%s->%s %0.2f\n\n"%(j,i,ALL_EDGES[getID(j,i)]["flow"]))
                 fo.close()
 
+        # last_head_ver = 1
+        # for i in ALL_EDGES.keys():
+        #     # if ALL_EDGES[i]["head_ver"] != last_head_ver:
+        #     #     print("")
+        #     ALL_EDGES[i]["flow"] = "%0.2f"%ALL_EDGES[i]["flow"]
+        #     fo = open("data/hxs/schedule-2035-3.txt", "a+")
+        #     fo.write("%s\n"%ALL_EDGES[i])
+        #     fo.close()
+        #     print(ALL_EDGES[i])
+        #     last_head_ver = ALL_EDGES[i]["head_ver"]
+    
+    def frankWolf(self):
+        '''检索凸优化问题的算法'''
+        pass
+
 
     def loadFlow(self):
         '''加载流量'''
@@ -79,9 +89,6 @@ class TrafficAssignment():
         
         # for i in range(1,26):
         #     print(self.ALL_FLOW[i])
-    
-    def loadNetwork(self):
-
 
     def pointToAll(self,ver_start):
         _list, record = [ver_start],{ver_start : {"id":ver_start, "distance":0, "front_ver":-1} }
@@ -127,4 +134,3 @@ class TrafficAssignment():
 
 if __name__ == '__main__':
     TrafficAssignment()
-

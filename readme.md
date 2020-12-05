@@ -1,50 +1,69 @@
-
-
 # Content
+
+This readme include my notes for problems in urban transportation, network problems, simulation, numerical optimization, and integer programming. Besides, my projects and algorithms implementation for some topics are also introduced.
+
+Without implementation, knowledge is only knowledge while not ability. In the future, the author will try to use them solve some realistic problems. If you have any question want to chat with me or ask me, please contact: tjyangshan@gmail.com 
+
+## Introduction
 
 - [Urban Transportation](#urban-transportation)
   * [BPR Function](#bpr-function)
   * [User Euqilibrium](#user-euqilibrium)
     + [Mathematical Model](#mathematical-model)
-    + [Heuristic method[Project Code]](#heuristic-method)
+    + [Heuristic method](#heuristic-method)
   * [Beckmann's Transformation](#beckmann-s-transformation)
-  * [Frank-Wolfe Algorithm[Project Code]](#frank-wolfe-algorithm)
+  * [Frank-Wolfe Algorithm](#frank-wolfe-algorithm)
   * [System Optimum](#system-optimum)
     + [Model Introduction](#model-introduction)
     + [Price of Anarchy](#price-of-anarchy)
   * [Network Loading Models](#network-loading-models)
+    + [Why investigate?](#why-investigate-)
     + [Choice Function](#choice-function)
-    + [Logit-Based Loading Models[Project Code]](#logit-based-loading-models)
+    + [Logit-Based Loading Models](#logit-based-loading-models)
+  * [Traffic bottleneck](#traffic-bottleneck)
+    + [Stationary bottleneck](#stationary-bottleneck)
+    + [Moving bottleneck](#moving-bottleneck)
 - [Network Problem](#network-problem)
+  * [Shortest Path Problem](#shortest-path-problem)
+  * [Graph Algorithm](#graph-algorithm)
   * [Max-Flow Problem](#max-flow-problem)
+    + [Ford-Fulkerson](#ford-fulkerson)
+    + [Capacity Scaling Algorithm](#capacity-scaling-algorithm)
+    + [Preflow Push Algorithm](#preflow-push-algorithm)
+    + [Application](#application)
   * [Minimum Cost Flow](#minimum-cost-flow)
-- [Simulation](#simulation)
-  * [Random Number](#random-number)
-  * [Queueing Theory](#queueing-theory)
+    + [Cycle canceling algorithm](#cycle-canceling-algorithm)
+    + [Successive shortest path algorithm](#successive-shortest-path-algorithm)
+    + [Application-Assignment](#application-assignment)
+    + [Application-Schedule](#application-schedule)
 - [Optimization Problem](#optimization-problem)
   * [Unconstrained Optimization](#unconstrained-optimization)
   * [Line Search Methods](#line-search-methods)
-    + [Simple Introduction](#simple-introduction)
-    + [Search Direction](#search-direction)
+    + [Introduction to Line Search](#introduction-to-line-search)
+    + [Steppest Direction](#steppest-direction)
+    + [Newton Direction](#newton-direction)
+  * [Scaling](#scaling)
   * [Trust Region](#trust-region)
-  * [KKT Condition](#kkt-condition)
-  * [Leat-Squared Problems](#leat-squared-problems)
-  * [Dual Problem](#dual-problem)
-  * [Newton's Method](#newton-s-method)
   * [Quasi-Newton's Method](#quasi-newton-s-method)
-  * [No-linear Equation](#no-linear-equation)
+  * [KKT Condition](#kkt-condition)
+  * [Others](#others)
 - [Integer Programming](#integer-programming)
+  * [Algorithms](#algorithms)
   * [Branch and Bound](#branch-and-bound)
   * [Branch and Cut](#branch-and-cut)
-  * [Branch and Price](#branch-and-price)
-  * [Lagrangian Decomposition](#lagrangian-decomposition)
   * [Column Generation](#column-generation)
-  * [DW Decomposition](#dw-decomposition)
   * [Bender Decomposition](#bender-decomposition)
-  * [Iterated Local Search](#iterated-local-search)
-- [Reinforcement Learning](#reinforcement-learning)
+  * [DW Decomposition](#dw-decomposition)
+  * [Lagrangean Decomposition](#lagrangean-decomposition)
+- [Reinforcement&Online Learning](#reinforcement-online-learning)
 
+## Project and Algorithms
 
+- Network-Loading Project: A project solving the 
+- User Equilibrium Project:
+- Network Algorithms: 
+- Integer Programming Algorithms: 
+- Travel Demand Prediction Project: 
 
 # Urban Transportation 
 
@@ -71,8 +90,6 @@ $S_a(Q_a)$ is the average travel time for a vehicle on link a
 The user optimum equilibrium assumes that all users choose their own route towards their destination based on the travel time that will be consumed in different route options. The users will choose the route which requires the least travel time. The user optimum model is often used in simulating the impact on traffic assignment by highway bottlenecks. When the congestion occurs on highway, it will extend the delay time in travelling through the highway and create a longer travel time. Under the user optimum assumption, the users would choose to wait until the travel time using a certain freeway is equal to the travel time using city streets, and hence equilibrium is reached. This equilibrium is called User Equilibrium, Wardrop Equilibrium or Nash Equilibrium.
 
 [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/User_equilibrium_traffic_model.jpg/400px-User_equilibrium_traffic_model.jpg)](https://en.wikipedia.org/wiki/File:User_equilibrium_traffic_model.jpg)
-
-Figure 1. User equilibrium traffic model
 
 The core principle of User Equilibrium is that all used routes between a given OD pair have the same travel time. An alternative route option is enabled to use when the actual travel time in the system has reached the free-flow travel time on that route.
 
@@ -285,20 +302,6 @@ Need review.
 
 <img src="img/image-20201201011729314.png" alt="image-20201201011729314" width="500px" />
 
-# Simulation
-
-## Random Number
-
-
-
-## Queueing Theory
-
-
-
-
-
-
-
 # Optimization Problem
 
 This part contains some issues introduced in *Nocedal J, Wright S. Numerical optimization[M]. Springer Science & Business Media, 2006* and *Boyd S, Boyd S P, Vandenberghe L. Convex optimization[M]. Cambridge university press, 2004*.
@@ -318,6 +321,8 @@ These four theorems introduce how to obtain the local optimal of a function $f$.
 ## Line Search Methods 
 
 ### Introduction to Line Search
+
+Algorithms Application: [User-Equilibrium-Project&Line-Search](User-Equilibrium-Project&Line-Search)
 
 In the *line search* strategy, the algorithm chooses a direction $p_k$ and searches along this direction from the current iterate $x_k$ for a new iterate with a lower function value. The distance to move along $p_k$ can be found by approximately solving the following one- dimensional minimization problem to find a step length α: 
 
@@ -356,20 +361,6 @@ Line search starts by fixing the direction $p_k$ and then identifying an appropr
 
 <img src="img/image-20201128033854279.png" alt="image-20201128033854279" width="700" align="center" />
 
-## KKT Condition
-
-In constrained optimization problem, 
-
-
-
-
-
-## Leat-Squared Problems
-
-
-
-
-
 ## Quasi-Newton's Method
 
 *Quasi-Newton* search directions provide an attractive alternative to Newton’s method in that they do not require computation of the Hessian and yet still attain a superlinear rate of convergence.  In place of the true Hessian $\nabla^2 f_k$, they use an approximation $B_k$, which is updated after each step to take account of the additional knowledge gained during the step. 
@@ -384,61 +375,97 @@ The quasi-Newton search direction is:
 
 <img src="img/image-20201128181238814.png" alt="image-20201128181238814" width="180" align="center" />
 
-## No-linear Equation
 
 
+## KKT Condition
 
-## Dual Problem
+<img src="img/image-20201205212157819.png" alt="image-20201205212157819" width="600px" />
 
-There are several properties of dual problem.
+## Others
 
-Strong 
-
-Weak
-
-Shadow Price
-
-
+- No-linear eqution
+- Least-Square Problem
 
 # Integer Programming
 
+In carsharing system, there many problems whose solutions are discrete such as scheduling and dispatching problem. Most of them are NP-hard. In general, heruistic algorithms for integer programming are efficient approaches to handle them. 
+
+## Algorithms
+
+- Branch and Bound
+- Branch and Cut
+- Branch and Price
+- Lagrangian Decompsoition
+- Column Generation
+- DW Decomposition
+- Bender Decomposition
+
 ## Branch and Bound
 
-编辑中
+Branch and bound (BB, B&B, or BnB) is an algorithm design paradigm for discrete and combinatorial optimization problems, as well as mathematical optimization. A branch-and-bound algorithm consists of a systematic enumeration of candidate solutions by means of state space search: the set of candidate solutions is thought of as forming a rooted tree with the full set at the root. The algorithm explores branches of this tree, which represent subsets of the solution set. Before enumerating the candidate solutions of a branch, the branch is checked against upper and lower estimated bounds on the optimal solution, and is discarded if it cannot produce a better solution than the best one found so far by the algorithm.
+
+![Branch and Bound Algorithm - GeeksforGeeks](img/knapsack3.png)
 
 ## Branch and Cut
 
-编辑中
+Branch and cut is a method of combinatorial optimization for solving integer linear programs (ILPs), that is, linear programming (LP) problems where some or all the unknowns are restricted to integer values. Branch and cut involves running a branch and bound algorithm and using cutting planes to tighten the linear programming relaxations. Note that if cuts are only used to tighten the initial LP relaxation, the algorithm is called cut and branch.
 
-## Branch and Price
-
-编辑中
-
-## Lagrangian Decomposition
-
-
-
-编辑中
+![img](img/v2-2372587f8bf772f69318d37b5f9deae8_1440w.png)
 
 ## Column Generation
 
-编辑中
+Reference: https://zhuanlan.zhihu.com/p/118516953
 
-## DW Decomposition
+Code: [column generation.py](Integer-Programming-Algorithms/column_generation.py)
 
-编辑中
+![img](https://pic4.zhimg.com/80/v2-e5eeaea4759c95762e6eb1ec51e33333_1440w.jpg)
+
+![img](https://pic1.zhimg.com/80/v2-afccbdfef727a4e6ac72000a763d4cdc_1440w.jpg)
+
+![img](https://pic4.zhimg.com/80/v2-80d0c573404e673648b8d0d2dcd4803b_1440w.jpg)
+
+![img](https://pic1.zhimg.com/80/v2-7707a3c3a610d07106c4a22fcd8dd8e8_1440w.jpg)
+
+![img](https://pic4.zhimg.com/80/v2-c03295ab9a1df004ef9d5f469416954b_1440w.jpg)
 
 ## Bender Decomposition
 
-编辑中
+Code: [bender decomposition.py](Integer-Programming-Algorithms/bender_decomposition.py)
 
+**Bender Decomposition is a algorithm for MIP problem.**
 
+1. Problem can be formulated to have only one continous var with a lot more constraints
+2. Because only a small number of constraints are useful, we can drop most of them.
 
-## Iterated Local Search
+**Procedure**
 
-Local search is a heuristic approch for integer programming. This approache will limit the searching region and search the local region of the initial solution iteratively. However, the solution time depends on the initial solution and it may fall into local optimum.
+1. Start with a relaxed BMP with no constraints or just a few, sovle to optimal
+2. We also have an upper bound Zub
+3. Solve the dual problem to get u, it may be 
+   1. Infeasible(Dual Unbounded), generate v to find violated feasibility cut
+   2. has a solution, add u related optimality cut, we has a lower bound
 
+<img src="img/bender_img.png" alt="在这里插入图片描述" width="500px" />
 
+<img src="img/image-20200610113002827.png" alt="image-20200610113002827" height="500px" />
+
+<img src="img/image-20200610113040574.png" alt="image-20200610113040574" height="340px" />
+
+<img src="img/image-20200610194807165.png" alt="image-20200610194807165" height="400px" />
+
+## DW Decomposition
+
+Code: [dw decomposition.py](Integer-Programming-Algorithms/dw_decomposition.py)
+
+![在这里插入图片描述](img/dw_decomposition.png)
+
+It is a approache similar to column generation.
+
+## Lagrangean Decomposition
+
+![image-20201205144143258](img/image-20201205144143258.png)
+
+http://egon.cheme.cmu.edu/ewo/docs/EWOLagrangeanGrossmann.pdf
 
 # Reinforcement&Online Learning
 
