@@ -1,10 +1,18 @@
-# Content
+# Note for Transportation and Optimization
 
 This readme includes my notes for problems in urban transportation, network problems, numerical optimization, and integer programming. Besides, my projects and algorithms implementation for some topics are also introduced. This document is still updating.
 
 My research field now concentrates on *Network Modelling and Optimization* and *Shared Mobility*. If you have any question, please contact: tjyangshan@gmail.com 
 
-## Introduction
+## Project and Algorithms
+
+- Network-Loading Project: A project solving the 
+- User Equilibrium Project:
+- Network Algorithms: 
+- [Integer Programming Algorithms](): Some important algorithms for discrete problems.
+- Travel Demand Prediction Project: 
+
+## Content
 
 - [Urban Transportation](#urban-transportation)
   * [BPR Function](#bpr-function)
@@ -56,14 +64,6 @@ My research field now concentrates on *Network Modelling and Optimization* and *
   * [Lagrangean Decomposition](#lagrangean-decomposition)
 - [Reinforcement&Online Learning](#reinforcement-online-learning)
 
-## Project and Algorithms
-
-- Network-Loading Project: A project solving the 
-- User Equilibrium Project:
-- Network Algorithms: 
-- Integer Programming Algorithms: 
-- Travel Demand Prediction Project: 
-
 # Urban Transportation 
 
 This part contains some problems introduced in *Sheffi Y. Urban transportation networks[M]. Prentice-Hall, Englewood Cliffs, NJ, 1985* , wiki, and *operation research*
@@ -88,7 +88,7 @@ $S_a(Q_a)$ is the average travel time for a vehicle on link a
 
 The user equilibrium assumes that all users choose their own route towards their destination based on the travel time that will be consumed in different route options. The users will choose the route which requires the least travel time. The user euqilibrium model is often used in simulating the impact on traffic assignment by highway bottlenecks. When the congestion occurs on highway, it will extend the delay time in travelling through the highway and create a longer travel time. Under the user optimum assumption, the users would choose to wait until the travel time using a certain freeway is equal to the travel time using city streets, and hence equilibrium is reached. This equilibrium is called User Equilibrium, Wardrop Equilibrium or Nash Equilibrium.
 
-<img src="/Users/sean/Documents/Projects/My Github/Transportation-and-Optimization-Notes/img/400px-User_equilibrium_traffic_model.png" alt="img" width="500px" />
+<img src="img/400px-User_equilibrium_traffic_model.png" alt="img" width="500px" />
 
 The core principle of User Equilibrium is that all used routes between a given OD pair have the same travel time. An alternative route option is enabled to use when the actual travel time in the system has reached the free-flow travel time on that route.  [From Wiki]
 
@@ -152,13 +152,13 @@ When there are serval choices for passengers, different ways will afford differe
 
 Let $U = (U_1, ... , U_K)$ denote the vector of utilities associated with a given set of alternatives, $K$. This set includes K alternative snumbered 1, 2, ... , *K.* The utility of each alternative to a specific decision maker can be expressed as a function of the observed attributes of the alternatives and the observed characteristics of this decision maker. Let **a** denote the vector of variables which include these characteristics and attributes. Thus $U_k = U_k(a)$. To incorporate the effects of unobserved attributes and characteristics, the utility of each alternative is expressed as a random variable consisting of a systematic (deterministic) component, $V_k(a)$,and an additive random "error term", **k(a),**that is, 
 
-<img src="/Users/sean/Documents/Projects/My Github/Transportation-and-Optimization-Notes/img/image-20201205214955971.png" alt="image-20201205214955971" width="300px" />
+<img src="img/image-20201205214955971.png" alt="image-20201205214955971" width="300px" />
 
 The random component of the utility satisfies $E[\xi_k(a)]= 0$, meaning that $E[U_k(a)] = V_k(a)$.In this context, Uk(a) is sometimes referred to as the "per- ceived utility" and $V_k(a)$ as the "measured utility."
 
 The choice probability is then the probability that $U_k(a)$ is higher than the utility of any other alternative and 
 
-<img src="/Users/sean/Documents/Projects/My Github/Transportation-and-Optimization-Notes/img/image-20201205215044043.png" alt="image-20201205215044043" width="400px" />
+<img src="img/image-20201205215044043.png" alt="image-20201205215044043" width="400px" />
 
 
 ### Logit-Based Loading Models 
@@ -173,7 +173,7 @@ This logit model is similar to the softmax model.
 
 Traffic bottlenecks are disruptions of traffic on a roadway caused either due to road design, traffic lights, or accidents. There are two general types of bottlenecks, stationary and moving bottlenecks. Stationary bottlenecks are those that arise due to a disturbance that occurs due to a stationary situation like narrowing of a roadway, an accident. Moving bottlenecks on the other hand are those vehicles or vehicle behavior that causes the disruption in the vehicles which are upstream of the vehicle. Generally, moving bottlenecks are caused by heavy trucks as they are slow moving vehicles with less acceleration and also may make lane changes.
 
-<img src="/Users/sean/Documents/Projects/My Github/Transportation-and-Optimization-Notes/img/350px-Percentage_split_of_causes_of_Traffic_Congestion.png" alt="img" width="400px" />
+<img src="img/350px-Percentage_split_of_causes_of_Traffic_Congestion.png" alt="img" width="400px" />
 
 Bottlenecks are important considerations because they impact the flow in traffic, the average speeds of the vehicles. The main consequence of a bottleneck is an immediate reduction in capacity of the roadway. The Federal Highway Authority has stated that 40% of all congestion is from bottlenecks figure 16 shows the pie-chart for various causes of congestion. Figure 17 shows the common causes of congestion or bottlenecks. [From Wiki]
 
@@ -181,7 +181,7 @@ Bottlenecks are important considerations because they impact the flow in traffic
 
 The general cause of stationary bottlenecks are lane drops which occurs when the a multilane roadway loses one or more its lane. This causes the vehicular traffic in the ending lanes to merge onto the other lanes.
 
-![img](/Users/sean/Documents/Projects/My Github/Transportation-and-Optimization-Notes/img/350px-Wikipedia_TrafficBottlenecks_regular.png)
+![img](img/350px-Wikipedia_TrafficBottlenecks_regular.png)
 
 Consider a stretch of highway with two lanes in one direction. Suppose that the fundamental diagram is modeled as shown here. The highway has a peak capacity of Q vehicles per hour, corresponding to a density of kc vehicles per mile. The highway normally becomes jammed at kj vehicles per mile.
 
@@ -189,7 +189,7 @@ Before capacity is reached, traffic may flow at A vehicles per hour, or a higher
 
 Now, suppose that at a certain location x0, the highway narrows to one lane. The maximum capacity is now limited to D', or half of Q, since only one lane of the two is available. D shares the same flowrate as state D', but its vehicular density is higher.
 
-![img](/Users/sean/Documents/Projects/My Github/Transportation-and-Optimization-Notes/img/350px-Wikipedia_TrafficBottlenecks_regular_tsd.png)
+![img](img/350px-Wikipedia_TrafficBottlenecks_regular_tsd.png)
 
 Using a time-space diagram, we may model the bottleneck event. Suppose that at time 0, traffic begins to flow at rate B and speed vf. After time t1, vehicles arrive at the lower flowrate A. [From Wiki]
 
@@ -342,7 +342,7 @@ The quasi-Newton search direction is:
 
 ## KKT Condition
 
-<img src="img/image-20201205212157819.png" alt="image-20201205212157819" width="600px" />
+<img src="img/image-20201205212157819.png" alt="image-20201205212157819" width="500px" />
 
 ## Others
 
