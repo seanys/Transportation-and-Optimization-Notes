@@ -109,7 +109,7 @@ After beckmann transformation, the problem is converted to convex optimization p
 
 <img src="img/image-20201206160124089.png" alt="image-20201206160124089" width="600px" />
 
-<img src="/Users/sean/Documents/image-20201205001842403.png" alt="image-20201205001842403" width="600px" />
+<img src="img/image-20201205001842403.png" alt="image-20201205001842403" width="600px" />
 
 ## Course Project
 
@@ -143,5 +143,5 @@ Source Code: [solution_sious_falls.py](solution_sious_falls.py)
 
 
 
-![image-20201206193922734](img/image-20201206193922734.png)
+<img src="img/image-20201206193922734.png" alt="image-20201206193922734" width="600px" />
 

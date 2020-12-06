@@ -10,10 +10,10 @@ Reference: 尚尔康,左忠义. 基于广义出行费用的多校区出行分析
 
 ## Project Detail
 
-![Network-Loading_page-0001](img/Network-Loading_page-0001.jpg)
+<img src="img/Network-Loading_page-0001.jpg" alt="Network-Loading_page-0001" width="700px" />
 
-![Network-Loading_page-0002](img/Network-Loading_page-0002.jpg)
+<img src="img/Network-Loading_page-0002.jpg" alt="Network-Loading_page-0002"  width="700px" />
 
-![Network-Loading_page-0003](img/Network-Loading_page-0003.jpg)
+<img src="img/Network-Loading_page-0003.jpg" alt="Network-Loading_page-0003"  width="700px" />
 
-![Network-Loading_page-0004](img/Network-Loading_page-0004.jpg)
+<img src="img/Network-Loading_page-0004.jpg" alt="Network-Loading_page-0004"  width="700px" />

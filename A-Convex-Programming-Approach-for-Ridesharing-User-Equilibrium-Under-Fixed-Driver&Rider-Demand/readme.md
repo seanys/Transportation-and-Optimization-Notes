@@ -2,11 +2,9 @@
 
 [A Convex Programming Approach for Ridesharing User Equilibrium Under Fixed Driver/Rider Demand](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3589442)
 
-Since listening to Dr. Wang's explanation to this paper for serval times, I took a note for this paper.
-
 ### Introduction
 
-**Target**: As the development of ridesharing, which is a useful tool for congestion mitigation, the ridesharing user equilibrium(RUE) will be a important issue.
+**Target**: As the development of ridesharing, the ridesharing user equilibrium(RUE) will be a important issue.
 
 **Difference**: Existing papers mainly focused on RUE with lots of restrictions.
 

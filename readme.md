@@ -6,12 +6,11 @@ My research field now concentrates on *Network Modelling and Optimization* and *
 
 ## Projects and Algorithms
 
-- [Network-Loading-Project](Network-Loading-Project): This folder contains a project in which I solved the network loading problem using logit regression model.
 - [User-Equilibrium-Project&Line-Search](User-Equilibrium-Project&Line-Search): In this folder, the course project on the topic of user equilibrium in course lectured by Dr. Wang Xiaolei will be introduced. It includes Frank-Wolf Algorithms, Beckmann Transformation, and Line Search.
-- [Network-Problem-Algorithms](Network-Problem-Algorithms): Algorithms for problems in min-cost flow and max-flow.
-- [Integer-Programming-Algorithms](Integer-Programming-Algorithms): Some important algorithms for discrete problems.
-- [Demand-Prediction](Demand-Prediction): Use Detroit, smooth prediction, and line regression to predict the population, economics, and OD demand.
 - [A-Convex-Programming-Approach-for-Ridesharing-User-Equilibrium-Under-Fixed-Driver/Rider-Demand](A-Convex-Programming-Approach-for-Ridesharing-User-Equilibrium-Under-Fixed-Driver&Rider-Demand): Note for this paper proposed by Dr. Wang
+- [Integer-Programming-Algorithms](Integer-Programming-Algorithms): Some important algorithms for discrete problems.
+- [Network-Problem-Algorithms](Network-Problem-Algorithms): Algorithms for problems in min-cost flow and max-flow.
+- [Network-Loading-Project](Network-Loading-Project): This folder contains a project in which I solved the network loading problem using logit regression model.
 
 ## Notes
 
