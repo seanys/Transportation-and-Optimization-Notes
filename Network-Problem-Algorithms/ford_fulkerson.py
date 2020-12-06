@@ -11,13 +11,13 @@ class FlowNetwork(object):
         self.adj = {}
         self.flow = {}
  
-    def add_vertex(self, vertex):
+    def addVertex(self, vertex):
         self.adj[vertex] = []
  
-    def get_edges(self, v):
+    def getEdges(self, v):
         return self.adj[v]
  
-    def add_edge(self, u, v, w=0):
+    def addEdge(self, u, v, w=0):
         if u == v:
             raise ValueError("u == v")
         edge = Edge(u,v,w)
@@ -29,36 +29,36 @@ class FlowNetwork(object):
         self.flow[edge] = 0
         self.flow[redge] = 0
  
-    def find_path(self, source, sink, path):
+    def findPath(self, source, sink, path):
         if source == sink:
             return path
-        for edge in self.get_edges(source):
+        for edge in self.getEdges(source):
             residual = edge.capacity - self.flow[edge]
             if residual > 0 and edge not in path:
-                result = self.find_path( edge.sink, sink, path + [edge]) 
+                result = self.findPath( edge.sink, sink, path + [edge]) 
                 if result != None:
                     return result
  
-    def max_flow(self, source, sink):
-        path = self.find_path(source, sink, [])
+    def maxFlow(self, source, sink):
+        path = self.findPath(source, sink, [])
         while path != None:
             residuals = [edge.capacity - self.flow[edge] for edge in path]
             flow = min(residuals)
             for edge in path:
                 self.flow[edge] += flow
                 self.flow[edge.redge] -= flow
-            path = self.find_path(source, sink, [])
-        return sum(self.flow[edge] for edge in self.get_edges(source))
+            path = self.findPath(source, sink, [])
+        return sum(self.flow[edge] for edge in self.getEdges(source))
 
 if __name__ == "__main__":
     g = FlowNetwork()
-    [g.add_vertex(v) for v in "sopqrt"]
-    g.add_edge('s','o',3)
-    g.add_edge('s','p',3)
-    g.add_edge('o','p',2)
-    g.add_edge('o','q',3)
-    g.add_edge('p','r',2)
-    g.add_edge('r','t',3)
-    g.add_edge('q','r',4)
-    g.add_edge('q','t',2)
-    print((g.max_flow('s','t')))
+    [g.addVertex(v) for v in "sopqrt"]
+    g.addEdge('s','o',3)
+    g.addEdge('s','p',3)
+    g.addEdge('o','p',2)
+    g.addEdge('o','q',3)
+    g.addEdge('p','r',2)
+    g.addEdge('r','t',3)
+    g.addEdge('q','r',4)
+    g.addEdge('q','t',2)
+    print("最大流:%s"%(g.maxFlow('s','t')))

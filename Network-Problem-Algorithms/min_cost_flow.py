@@ -1,50 +1,38 @@
-#
-# Example: solving a min-cost-flow problem
-# using the Xpress Python interface
-#
+from ortools.graph import pywrapgraph
 
-from __future__ import print_function
+def minCostFlow(start_nodes,end_nodes,capacities,unit_costs,supplies):
+    '''求解最小费用流问题'''
+    # Instantiate a SimpleMinCostFlow solver.
+    min_cost_flow = pywrapgraph.SimpleMinCostFlow()
+    # Add each arc.
+    for i in range(0, len(start_nodes)):
+        min_cost_flow.AddArcWithCapacityAndUnitCost(start_nodes[i], end_nodes[i],
+                                                    capacities[i], unit_costs[i])
+    # Add node supplies.
+    for i in range(0, len(supplies)):
+        min_cost_flow.SetNodeSupply(i, supplies[i])
+    # Find the minimum cost flow between node 0 and node 4.
+    if min_cost_flow.Solve() == min_cost_flow.OPTIMAL:
+        print('Minimum cost:', min_cost_flow.OptimalCost())
+        print('')
+        print('  Arc    Flow / Capacity  Cost')
+        for i in range(min_cost_flow.NumArcs()):
+            cost = min_cost_flow.Flow(i) * min_cost_flow.UnitCost(i)
+            print('%1s -> %1s   %3s  / %3s       %3s' % (
+                min_cost_flow.Tail(i),
+                min_cost_flow.Head(i),
+                min_cost_flow.Flow(i),
+                min_cost_flow.Capacity(i),
+                cost))
+    else:
+        print('There was an issue with the min cost flow input.')
 
-try:
-    import networkx as netx  # nice (di-)graph Python package
-except ImportError:
-    print("Install the NetworkX Python package to use this example")
-    quit()
-
-import numpy as np  # for matrix and vector products
-import xpress as xp
-
-# digraph definition
-
-V = [1, 2, 3, 4, 5]                                   # vertices
-E = [[1, 2], [1, 4], [2, 3], [3, 4], [4, 5], [5, 1]]  # arcs
-
-n = len(V)  # number of nodes
-m = len(E)  # number of arcs
-
-G = netx.DiGraph(E)
-
-# Get NumPy representation
-A = (netx.incidence_matrix(G, oriented=True).toarray())
-
-print("incidence matrix:\n", A)
-
-# One (random) demand for each node
-demand = np.random.randint(100, size=n)
-# Balance demand at nodes
-demand[0] = - sum(demand[1:])
-
-cost = np.random.randint(20, size=m)  # (Random) costs
-
-flow = np.array([xp.var() for i in E])  # flow variables declared on arcs
-
-p = xp.problem('network flow')
-
-p.addVariable(flow)
-p.addConstraint(xp.Dot(A, flow) == - demand)
-p.setObjective(xp.Dot(cost, flow))
-
-p.solve()
-
-for i in range(m):
-    print('flow on', E[i], ':', p.getSolution(flow[i]))
+if __name__ == "__main__":
+    #between each pair. For instance, the arc from node 0 to node 1 has acapacity of 15 and a unit cost of 4.
+    start_nodes = [ 0, 0,  1, 1,  1,  2, 2,  3, 4]
+    end_nodes   = [ 1, 2,  2, 3,  4,  3, 4,  4, 2]
+    capacities  = [15, 8, 20, 4, 10, 15, 4, 20, 5]
+    unit_costs  = [ 4, 4,  2, 2,  6,  1, 3,  2, 3]
+    # Define an array of supplies at each node.
+    supplies = [20, 0, 0, -5, -15]
+    minCostFlow(start_nodes,end_nodes,capacities,unit_costs,supplies)
