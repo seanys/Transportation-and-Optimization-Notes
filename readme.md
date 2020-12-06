@@ -4,15 +4,16 @@ This readme includes my notes for problems in urban transportation, network prob
 
 My research field now concentrates on *Network Modelling and Optimization* and *Shared Mobility*. If you have any question, please contact: tjyangshan@gmail.com 
 
-## Project and Algorithms
+## Projects and Algorithms
 
-- Network-Loading Project: A project solving the 
-- User Equilibrium Project:
-- Network Algorithms: 
-- [Integer Programming Algorithms](): Some important algorithms for discrete problems.
-- Travel Demand Prediction Project: 
+- [Network-Loading-Project](Network-Loading-Project): This folder contains a project in which I solved the network loading problem using logit regression model.
+- [User-Equilibrium-Project&Line-Search](User-Equilibrium-Project&Line-Search): In this folder, the course project on the topic of user equilibrium in course lectured by Dr. Wang Xiaolei will be introduced. It includes Frank-Wolf Algorithms, Beckmann Transformation, and Line Search.
+- [Network-Problem-Algorithms](Network-Problem-Algorithms): Algorithms for problems in min-cost flow and max-flow.
+- [Integer-Programming-Algorithms](Integer-Programming-Algorithms): Some important algorithms for discrete problems.
+- [Demand-Prediction](Demand-Prediction): Use Detroit, smooth prediction, and line regression to predict the population, economics, and OD demand.
+- [A-Convex-Programming-Approach-for-Ridesharing-User-Equilibrium-Under-Fixed-Driver/Rider-Demand](A-Convex-Programming-Approach-for-Ridesharing-User-Equilibrium-Under-Fixed-Driver&Rider-Demand): Note for this paper proposed by Dr. Wang
 
-## Content
+## Notes
 
 - [Urban Transportation](#urban-transportation)
   * [BPR Function](#bpr-function)
