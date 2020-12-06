@@ -11,7 +11,6 @@ def funTest(x,args=np.array([])):
 def dfunTest(x,args=np.array([])):
     return pow(E,x) - 2
 
-
 def quadraticInterpolation(a,h,h0,g0):
     numerator=g0*a**2
     denominator=2*(g0*a+h0-h)
@@ -68,33 +67,42 @@ def zoom(fun,dfun,theta,args,d,a_low,a_high,c1=1e-3,c2=0.9,max_iter=1e4):
 
 class LineSearch():
     @staticmethod
-    def graidentDescent(fun,dfun,theta,_type="WolfSearch",show=False,maxiter=1e4,):
+    def graidentDescent(fun,dfun,theta,_type="ArmijoBackTrack",show=False,maxiter=10,):
         x,y,y_ = [theta[0]],[fun(theta)[0]],[dfun(theta)[0]]
         i = 0
         eps = 1e-6
         while i < maxiter:
             last_theta = deepcopy(theta)
             d = -dfun(theta)
-            # stepsize = LineSearch.ArmijoBacktrack(fun,dfun,theta,d)
-            # stepsize = LineSearch.ArmijoLineSearch(fun,dfun,theta,d)
-            stepsize = LineSearch.WolfeLineSearch(fun,dfun,theta,d)
-            if abs(d) < eps or stepsize < eps: break
+            if _type == "WolfLineSearch":
+                stepsize = LineSearch.WolfeLineSearch(fun,dfun,theta,d)
+            elif _type == "ArmijoBackTrack":
+                stepsize = LineSearch.ArmijoBacktrack(fun,dfun,theta,d)
+            elif _type == "ArmijoLineSearch":
+                stepsize = LineSearch.ArmijoLineSearch(fun,dfun,theta,d)
+            else:
+                stepsize = LineSearch.WolfeLineSearch(fun,dfun,theta,d)
+            # print("d,stepsize,theta:",d,stepsize,theta)
+            if abs(d) < eps or abs(stepsize)==0: break
             theta = last_theta + stepsize*d
+            if theta > 1: theta = np.array([1])
+            if theta < 0: theta = np.array([0])
             i = i + 1
             x.append(theta[0]),y.append(fun(theta)[0]),y_.append(dfun(theta)[0])
         
-        print(x)
-        print(y)
-        print(y_)
+        # print(x)
+        # print(y)
+        # print(y_)
 
-        print("Final x:%0.6f" % theta)
-        print("Final y:%0.6f" % fun(theta))
-        print("Final y':%0.6f" % dfun(theta))
-        print("Iteration Times':%s" % i)
+        # print("Final x:%0.6f" % theta)
+        # print("Final y:%0.6f" % fun(theta))
+        # print("Final y':%0.6f" % dfun(theta))
+        # print("Iteration Times':%s" % i)
+
         if show==True:
             plt.subplot(1,2,1)
             plot_X = np.linspace(-10, 3, 256, endpoint=True)
-            plt.plot(plot_X,funTest(plot_X))
+            plt.plot(plot_X,fun(plot_X))
             plt.subplot(1,2,2)
             plt.plot(np.array(x),np.array(y))
             plt.show()
